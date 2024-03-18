@@ -1,38 +1,39 @@
 import type {DatabaseConnection, Driver, TransactionSettings} from 'kysely'
 import type {KyselyKnexDialectConfig} from './config.js'
+import {KyselyKnexConnection} from './connection.js'
 
 export class KyselyKnexDriver implements Driver {
-  #config: KyselyKnexDialectConfig
+  readonly #config: KyselyKnexDialectConfig
 
   constructor(config: KyselyKnexDialectConfig) {
     this.#config = config
   }
 
-  acquireConnection(): Promise<DatabaseConnection> {
-    throw new Error('Method not implemented.')
+  async acquireConnection(): Promise<DatabaseConnection> {
+    return new KyselyKnexConnection(this.#config.knex)
   }
 
-  beginTransaction(connection: DatabaseConnection, settings: TransactionSettings): Promise<void> {
-    throw new Error('Method not implemented.')
+  async beginTransaction(connection: KyselyKnexConnection, settings: TransactionSettings): Promise<void> {
+    await connection.beginTransaction(settings)
   }
 
-  commitTransaction(connection: DatabaseConnection): Promise<void> {
-    throw new Error('Method not implemented.')
+  async commitTransaction(connection: KyselyKnexConnection): Promise<void> {
+    await connection.commitTransaction()
   }
 
-  destroy(): Promise<void> {
-    throw new Error('Method not implemented.')
+  async destroy(): Promise<void> {
+    await this.#config.knex.destroy()
   }
 
-  init(): Promise<void> {
-    throw new Error('Method not implemented.')
+  async init(): Promise<void> {
+    // noop
   }
 
-  releaseConnection(connection: DatabaseConnection): Promise<void> {
-    throw new Error('Method not implemented.')
+  async releaseConnection(connection: KyselyKnexConnection): Promise<void> {
+    connection.release()
   }
 
-  rollbackTransaction(connection: DatabaseConnection): Promise<void> {
-    throw new Error('Method not implemented.')
+  async rollbackTransaction(connection: KyselyKnexConnection): Promise<void> {
+    await connection.rollbackTransaction()
   }
 }
