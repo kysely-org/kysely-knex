@@ -24,6 +24,6 @@ export type KyselifyTables<T> = {
               : ColumnType<S[C], never, never> // GeneratedAlways<S[C]>
       }
     : {
-        [C in keyof T[TB]]-?: undefined extends T[TB][C] ? NonNullable<T[TB][C]> | null : T[TB][C]
+        [C in keyof T[TB]]-?: undefined extends T[TB][C] ? Exclude<T[TB][C], undefined> | null : T[TB][C]
       }
 }

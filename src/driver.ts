@@ -1,3 +1,4 @@
+import {Knex} from 'knex'
 import type {DatabaseConnection, Driver, TransactionSettings} from 'kysely'
 import type {KyselyKnexDialectConfig} from './config.js'
 import {KyselyKnexConnection} from './connection.js'
@@ -10,7 +11,9 @@ export class KyselyKnexDriver implements Driver {
   }
 
   async acquireConnection(): Promise<DatabaseConnection> {
-    return new KyselyKnexConnection(this.#config.knex)
+    const connection = await (this.#config.knex.client as Knex.Client).acquireConnection()
+
+    return new KyselyKnexConnection(this.#config.knex, connection)
   }
 
   async beginTransaction(connection: KyselyKnexConnection, settings: TransactionSettings): Promise<void> {

@@ -1,13 +1,14 @@
 import type {Knex} from 'knex'
 import type {CompiledQuery, DatabaseConnection, QueryResult, TransactionSettings} from 'kysely'
+import {KnexWriteResult} from './types'
 
 export class KyselyKnexConnection implements DatabaseConnection {
-  readonly #connection: unknown
+  #connection: unknown
   readonly #knex: Knex
   #transaction: Knex.Transaction | undefined
 
-  constructor(knex: Knex) {
-    this.#connection = (knex.client as Knex.Client).acquireConnection()
+  constructor(knex: Knex, connection: unknown) {
+    this.#connection = connection
     this.#knex = knex
   }
 
@@ -29,11 +30,22 @@ export class KyselyKnexConnection implements DatabaseConnection {
 
     console.log('results', results)
 
-    throw new Error('Method not implemented.')
+    if (Array.isArray(results)) {
+      return {
+        rows: results,
+      }
+    }
+
+    return {
+      insertId: BigInt((results as KnexWriteResult).lastInsertRowid),
+      numAffectedRows: BigInt((results as KnexWriteResult).changes),
+      rows: [],
+    }
   }
 
   release(): void {
     ;(this.#knex.client as Knex.Client).releaseConnection(this.#connection)
+    this.#connection = undefined
   }
 
   async rollbackTransaction(): Promise<void> {
