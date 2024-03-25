@@ -1,15 +1,17 @@
 import type {Knex} from 'knex'
 import type {CompiledQuery, DatabaseConnection, QueryResult, TransactionSettings} from 'kysely'
-import {KnexWriteResult} from './types'
+import {ResultsParser} from './cold-dialect/results-parser.js'
 
 export class KyselyKnexConnection implements DatabaseConnection {
   #connection: unknown
   readonly #knex: Knex
+  readonly #resultParser: ResultsParser
   #transaction: Knex.Transaction | undefined
 
-  constructor(knex: Knex, connection: unknown) {
+  constructor(knex: Knex, connection: unknown, resultParser: ResultsParser) {
     this.#connection = connection
     this.#knex = knex
+    this.#resultParser = resultParser
   }
 
   async beginTransaction(settings: TransactionSettings): Promise<void> {
@@ -26,25 +28,13 @@ export class KyselyKnexConnection implements DatabaseConnection {
   }
 
   async executeQuery<R>(compiledQuery: CompiledQuery<unknown>): Promise<QueryResult<R>> {
-    const results = await this.#knex.raw(compiledQuery.sql, compiledQuery.parameters).connection(this.#connection)
+    const results = await this.#getRawQueryForConnection(compiledQuery)
 
-    console.log('results', results)
-
-    if (Array.isArray(results)) {
-      return {
-        rows: results,
-      }
-    }
-
-    return {
-      insertId: BigInt((results as KnexWriteResult).lastInsertRowid),
-      numAffectedRows: BigInt((results as KnexWriteResult).changes),
-      rows: [],
-    }
+    return this.#resultParser.parseResults(results)
   }
 
-  release(): void {
-    ;(this.#knex.client as Knex.Client).releaseConnection(this.#connection)
+  async release(): Promise<void> {
+    await (this.#knex.client as Knex.Client).releaseConnection(this.#connection)
     this.#connection = undefined
   }
 
@@ -57,16 +47,19 @@ export class KyselyKnexConnection implements DatabaseConnection {
     compiledQuery: CompiledQuery<unknown>,
     chunkSize?: number | undefined,
   ): AsyncIterableIterator<QueryResult<R>> {
-    return this.#knex
-      .raw(compiledQuery.sql, compiledQuery.parameters)
-      .stream({
-        // TODO: chunk size???
-      })
-      .map((data) => {
-        console.log('data', data)
-
-        throw new Error('Method not implemented.')
-      })
+    return this.#getRawQueryForConnection(compiledQuery)
+      .stream({highWaterMark: chunkSize})
+      .map((results) => this.#resultParser.parseResults([results]))
       .iterator()
+  }
+
+  #getRawQueryForConnection(compiledQuery: CompiledQuery<unknown>): Knex.Raw {
+    return this.#knex.raw(this.#getNormalizedSQL(compiledQuery), compiledQuery.parameters).connection(this.#connection)
+  }
+
+  #getNormalizedSQL(compiledQuery: CompiledQuery): string {
+    const {sql} = compiledQuery
+
+    return compiledQuery.parameters.length ? sql.replace(/(\W)([\$@]\d+)(\W|$)/g, '$1?$3') : sql
   }
 }

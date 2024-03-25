@@ -1,24 +1,24 @@
 import knex, {type Knex} from 'knex'
 import type {Tables} from 'knex/types/tables'
-import {
-  Kysely,
-  MssqlAdapter,
-  MssqlIntrospector,
-  MssqlQueryCompiler,
-  MysqlAdapter,
-  MysqlIntrospector,
-  MysqlQueryCompiler,
-  PostgresAdapter,
-  SqliteAdapter,
-  SqliteIntrospector,
-  SqliteQueryCompiler,
-  type Insertable,
-  type KyselyPlugin,
-} from 'kysely'
+import {Kysely, type Insertable, type KyselyPlugin} from 'kysely'
 import omit from 'lodash/omit'
-import {KyselyKnexDialect, type KyselifyTables, type KyselyKnexDialectConfig, type KyselySubDialect} from '../../src'
-import type {SupportedDialect} from '../../src/supported-dialects'
+import {
+  BetterSQLite3ColdDialect,
+  KyselyKnexDialect,
+  MSSQLColdDialect,
+  MySQL2ColdDialect,
+  MySQLColdDialect,
+  PGColdDialect,
+  SQLite3ColdDialect,
+  type KyselifyTables,
+  type KyselyKnexDialectConfig,
+} from '../../src'
+import '../tables'
 export {expect} from 'chai'
+
+export const SUPPORTED_DIALECTS = ['better-sqlite3', 'mssql', 'mysql', 'mysql2', 'pg', 'sqlite3'] as const
+
+export type SupportedDialect = (typeof SUPPORTED_DIALECTS)[number]
 
 export type Database = KyselifyTables<Tables>
 
@@ -36,40 +36,29 @@ export const PLUGINS: KyselyPlugin[] = []
 
 const POOL_SIZE = 10
 
-const sqliteSubDialect = {
-  createAdapter: () => new SqliteAdapter(),
-  createIntrospector: (db) => new SqliteIntrospector(db),
-  createQueryCompiler: () => new SqliteQueryCompiler(),
-} satisfies KyselySubDialect
-
 export const CONFIGS: PerDialect<
   Omit<KyselyKnexDialectConfig, 'knex'> & {
     knexConfig: Knex.Config
   }
 > = {
   'better-sqlite3': {
-    kyselySubDialect: sqliteSubDialect,
     knexConfig: {
       client: 'better-sqlite3',
       connection: {
         filename: ':memory:',
       },
+      pool: {min: 0, max: POOL_SIZE},
       useNullAsDefault: true,
     },
+    kyselySubDialect: new BetterSQLite3ColdDialect(),
   },
   mssql: {
-    kyselySubDialect: {
-      createAdapter: () => new MssqlAdapter(),
-      createIntrospector: (db) => new MssqlIntrospector(db),
-      createQueryCompiler: () => new MssqlQueryCompiler(),
-    },
     knexConfig: {
       client: 'mssql',
       connection: {
         database: 'kysely_test',
         host: 'localhost',
         password: 'KyselyTest0',
-        pool: {min: 0, max: POOL_SIZE},
         port: 21433,
         userName: 'sa',
         options: {
@@ -77,14 +66,27 @@ export const CONFIGS: PerDialect<
           useUTC: true,
         },
       },
+      pool: {min: 0, max: POOL_SIZE},
     },
+    kyselySubDialect: new MSSQLColdDialect(),
   },
   mysql: {
-    kyselySubDialect: {
-      createAdapter: () => new MysqlAdapter(),
-      createIntrospector: (db) => new MysqlIntrospector(db),
-      createQueryCompiler: () => new MysqlQueryCompiler(),
+    knexConfig: {
+      client: 'mysql',
+      connection: {
+        bigNumberStrings: true,
+        database: 'kysely_test',
+        host: 'localhost',
+        password: 'kysely',
+        port: 3308,
+        supportBigNumbers: true,
+        user: 'kysely',
+      },
+      pool: {min: 0, max: POOL_SIZE},
     },
+    kyselySubDialect: new MySQLColdDialect(),
+  },
+  mysql2: {
     knexConfig: {
       client: 'mysql2',
       connection: {
@@ -92,41 +94,37 @@ export const CONFIGS: PerDialect<
         database: 'kysely_test',
         host: 'localhost',
         password: 'kysely',
-        pool: {min: 0, max: POOL_SIZE},
         port: 3308,
         supportBigNumbers: true,
         user: 'kysely',
       },
+      pool: {min: 0, max: POOL_SIZE},
     },
+    kyselySubDialect: new MySQL2ColdDialect(),
   },
   pg: {
-    kyselySubDialect: {
-      createAdapter: () => new PostgresAdapter(),
-      createIntrospector: (db) => new MysqlIntrospector(db),
-      createQueryCompiler: () => new MysqlQueryCompiler(),
-    },
     knexConfig: {
       client: 'pg',
       connection: {
         database: 'kysely_test',
         host: 'localhost',
-        pool: {min: 0, max: POOL_SIZE},
         port: 5434,
-        userName: 'kysely',
-        options: {
-          useUTC: true,
-        },
+        user: 'kysely',
       },
+      pool: {min: 0, max: POOL_SIZE},
     },
+    kyselySubDialect: new PGColdDialect(),
   },
   sqlite3: {
-    kyselySubDialect: sqliteSubDialect,
     knexConfig: {
       client: 'sqlite3',
       connection: {
         filename: ':memory:',
       },
+      pool: {min: 0, max: POOL_SIZE},
+      useNullAsDefault: true,
     },
+    kyselySubDialect: new SQLite3ColdDialect(),
   },
 }
 
@@ -155,7 +153,10 @@ async function connect(config: Knex.Config): Promise<Knex> {
     try {
       kneks = knex(config)
 
-      await kneks.raw('SELECT 1')
+      await kneks.raw('select 1')
+
+      await kneks.destroy()
+      kneks.initialize()
 
       return kneks
     } catch (error) {
@@ -193,7 +194,12 @@ async function createDatabase(knex: Knex): Promise<void> {
   await knex.schema.createTable('pet', (tb) => {
     tb.increments('id', {primaryKey: true})
     tb.string('name', 255).notNullable().unique()
-    tb.integer('owner_id').notNullable().references('person.id').onDelete('cascade').index('pet_owner_id_index')
+    tb.integer('owner_id')
+      .unsigned()
+      .notNullable()
+      .references('person.id')
+      .onDelete('cascade')
+      .index('pet_owner_id_index')
     tb.string('species', 50).notNullable()
   })
 
@@ -201,7 +207,7 @@ async function createDatabase(knex: Knex): Promise<void> {
     tb.increments('id', {primaryKey: true})
     tb.string('name', 255).notNullable()
     tb.double('price').notNullable()
-    tb.integer('pet_id').notNullable().references('pet.id')
+    tb.integer('pet_id').unsigned().notNullable().references('pet.id')
   })
 }
 
@@ -251,14 +257,17 @@ export async function seedDatabase(ctx: TestContext): Promise<void> {
 
     personIds = personIdContainers.map((container) => container.id)
   } else {
-    personIds = await personInsertionQuery
+    const [firstId] = await personInsertionQuery
+
+    personIds = DEFAULT_DATA_SET.map((_, index) => firstId + index)
   }
 
-  await ctx
-    .knex('pet')
-    .insert(
-      DEFAULT_DATA_SET.flatMap((person, index) =>
-        person.pets.map((pet) => ({...omit(pet, 'toys'), owner_id: personIds[index]})),
-      ),
-    )
+  await ctx.knex('pet').insert(
+    DEFAULT_DATA_SET.flatMap((person, index) =>
+      person.pets.map((pet) => ({
+        ...omit(pet, 'toys'),
+        owner_id: personIds[index],
+      })),
+    ),
+  )
 }

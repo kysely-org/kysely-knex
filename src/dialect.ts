@@ -1,13 +1,11 @@
 import type {DatabaseIntrospector, Dialect, DialectAdapter, Driver, Kysely, QueryCompiler} from 'kysely'
 import type {KyselyKnexDialectConfig} from './config.js'
 import {KyselyKnexDriver} from './driver.js'
-import {assertSupportedDialect} from './supported-dialects.js'
 
 export class KyselyKnexDialect implements Dialect {
   readonly #config: KyselyKnexDialectConfig
 
   constructor(config: KyselyKnexDialectConfig) {
-    assertSupportedDialect(config.knex.client.config.client)
     this.#config = config
   }
 

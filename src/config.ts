@@ -1,9 +1,7 @@
 import type {Knex} from 'knex'
-import type {Dialect} from 'kysely'
+import type {ColdDialect} from './cold-dialect/cold-dialect.js'
 
 export interface KyselyKnexDialectConfig {
   knex: Knex
-  kyselySubDialect: KyselySubDialect
+  kyselySubDialect: ColdDialect
 }
-
-export type KyselySubDialect = Omit<Dialect, 'createDriver'>
