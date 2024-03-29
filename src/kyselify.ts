@@ -8,6 +8,7 @@ import type {ColumnType} from 'kysely'
  *
  * ```ts
  * import type { Tables } from 'knex/types/tables'
+ * import type { KyselifyTables } from 'kysely-knex'
  *
  * export type Database = KyselifyTables<Tables>
  * ```
