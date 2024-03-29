@@ -4,7 +4,7 @@ Knex.js (pronounced /kəˈnɛks/) is a "batteries included" SQL query builder fo
 
 As of Mar 29, 2024, Knex has 1,625,784 weekly downloads on npm (3rd most popular SQL library). It is a very popular query builder for Node.js and TypeScript.
 
-Since Knex was created before TypeScript blew up, it's type capabilities are nothing to write home about. This is where Kysely comes in.
+Knex IS legendary, but since it was created before TypeScript blew up, it's type capabilities are nothing to write home about. This why Kysely was created.
 
 Kysely (pronounced “Key-Seh-Lee”) is a type-safe and autocompletion-friendly TypeScript SQL query builder. Inspired by Knex. Mainly developed for Node.js but also runs on Deno and in the browser.
 
