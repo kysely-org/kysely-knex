@@ -1,21 +1,35 @@
-import type {MysqlQueryResult, QueryResult} from 'kysely'
-import type {ResultsParser} from '../results-parser'
+import type {MysqlOkPacket, MysqlQueryResult, QueryResult} from 'kysely'
+import {isObject} from '../../util.js'
+import type {ResultsParser} from '../results-parser.js'
 
 export class MySQL2ResultsParser
   implements ResultsParser<[MysqlQueryResult, any]>
 {
-  parseResults(results: [MysqlQueryResult, any]): QueryResult<any> {
-    const [rezults] = results
-
-    if (Array.isArray(rezults)) {
-      return {rows: rezults}
+  parseResults(
+    results: [MysqlQueryResult] | MysqlQueryResult | Record<string, unknown>,
+  ): QueryResult<any> {
+    if (Array.isArray(results)) {
+      results = results[0]
     }
 
-    return {
-      rows: [],
-      insertId: BigInt(rezults.insertId),
-      numAffectedRows: BigInt(rezults.affectedRows),
-      numChangedRows: BigInt(rezults.changedRows),
+    if (this.#isOKPacket(results)) {
+      return {
+        rows: [],
+        insertId: BigInt(results.insertId),
+        numAffectedRows: BigInt(results.affectedRows),
+        numChangedRows: BigInt(results.changedRows),
+      }
     }
+
+    return {rows: Array.isArray(results) ? results : [results]}
+  }
+
+  #isOKPacket(results: unknown): results is MysqlOkPacket {
+    return (
+      isObject(results) &&
+      'affectedRows' in results &&
+      'changedRows' in results &&
+      'insertId' in results
+    )
   }
 }

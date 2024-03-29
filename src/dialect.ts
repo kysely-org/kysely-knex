@@ -1,12 +1,20 @@
-import type {DatabaseIntrospector, Dialect, DialectAdapter, Driver, Kysely, QueryCompiler} from 'kysely'
+import type {
+  DatabaseIntrospector,
+  Dialect,
+  DialectAdapter,
+  Driver,
+  Kysely,
+  QueryCompiler,
+} from 'kysely'
 import type {KyselyKnexDialectConfig} from './config.js'
 import {KyselyKnexDriver} from './driver.js'
+import {freeze} from './util.js'
 
 export class KyselyKnexDialect implements Dialect {
   readonly #config: KyselyKnexDialectConfig
 
   constructor(config: KyselyKnexDialectConfig) {
-    this.#config = config
+    this.#config = freeze({...config})
   }
 
   createAdapter(): DialectAdapter {

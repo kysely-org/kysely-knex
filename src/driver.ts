@@ -10,16 +10,25 @@ export class KyselyKnexDriver implements Driver {
 
   constructor(config: KyselyKnexDialectConfig) {
     this.#config = config
-    this.#resultsParser = config.kyselySubDialect.createResultsParser!()
+    this.#resultsParser = config.kyselySubDialect.createResultsParser()
   }
 
   async acquireConnection(): Promise<DatabaseConnection> {
-    const connection = await (this.#config.knex.client as Knex.Client).acquireConnection()
+    const connection = await (
+      this.#config.knex.client as Knex.Client
+    ).acquireConnection()
 
-    return new KyselyKnexConnection(this.#config.knex, connection, this.#resultsParser)
+    return new KyselyKnexConnection(
+      this.#config.knex,
+      connection,
+      this.#resultsParser,
+    )
   }
 
-  async beginTransaction(connection: KyselyKnexConnection, settings: TransactionSettings): Promise<void> {
+  async beginTransaction(
+    connection: KyselyKnexConnection,
+    settings: TransactionSettings,
+  ): Promise<void> {
     await connection.beginTransaction(settings)
   }
 

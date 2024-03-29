@@ -1,6 +1,11 @@
 import type {Knex} from 'knex'
-import type {CompiledQuery, DatabaseConnection, QueryResult, TransactionSettings} from 'kysely'
-import {ResultsParser} from './cold-dialect/results-parser.js'
+import type {
+  CompiledQuery,
+  DatabaseConnection,
+  QueryResult,
+  TransactionSettings,
+} from 'kysely'
+import type {ResultsParser} from './cold-dialect/results-parser.js'
 
 export class KyselyKnexConnection implements DatabaseConnection {
   #connection: unknown
@@ -27,7 +32,9 @@ export class KyselyKnexConnection implements DatabaseConnection {
     this.#transaction = undefined
   }
 
-  async executeQuery<R>(compiledQuery: CompiledQuery<unknown>): Promise<QueryResult<R>> {
+  async executeQuery<R>(
+    compiledQuery: CompiledQuery<unknown>,
+  ): Promise<QueryResult<R>> {
     const results = await this.#getRawQueryForConnection(compiledQuery)
 
     return this.#resultParser.parseResults(results)
@@ -49,17 +56,15 @@ export class KyselyKnexConnection implements DatabaseConnection {
   ): AsyncIterableIterator<QueryResult<R>> {
     return this.#getRawQueryForConnection(compiledQuery)
       .stream({highWaterMark: chunkSize})
-      .map((results) => this.#resultParser.parseResults([results]))
+      .map((row) => this.#resultParser.parseResults([row]), {
+        concurrency: chunkSize,
+      })
       .iterator()
   }
 
   #getRawQueryForConnection(compiledQuery: CompiledQuery<unknown>): Knex.Raw {
-    return this.#knex.raw(this.#getNormalizedSQL(compiledQuery), compiledQuery.parameters).connection(this.#connection)
-  }
-
-  #getNormalizedSQL(compiledQuery: CompiledQuery): string {
-    const {sql} = compiledQuery
-
-    return compiledQuery.parameters.length ? sql.replace(/(\W)([\$@]\d+)(\W|$)/g, '$1?$3') : sql
+    return this.#knex
+      .raw(compiledQuery.sql, compiledQuery.parameters)
+      .connection(this.#connection)
   }
 }

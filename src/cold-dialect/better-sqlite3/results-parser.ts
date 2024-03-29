@@ -4,9 +4,7 @@ import type {ResultsParser} from '../results-parser.js'
 export class BetterSQLite3ResultsParser implements ResultsParser<any> {
   parseResults(results: any): QueryResult<any> {
     if (Array.isArray(results)) {
-      return {
-        rows: results,
-      }
+      return {rows: results}
     }
 
     return {

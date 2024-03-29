@@ -2,7 +2,13 @@ import type {PostgresQueryResult, QueryResult} from 'kysely'
 import type {ResultsParser} from '../results-parser'
 
 export class PGResultParser implements ResultsParser<PostgresQueryResult<any>> {
-  parseResults(results: PostgresQueryResult<any>): QueryResult<any> {
+  parseResults(
+    results: PostgresQueryResult<any> | Record<string, unknown>[],
+  ): QueryResult<any> {
+    if (Array.isArray(results)) {
+      return {rows: results}
+    }
+
     const {command} = results
 
     const rows = results.rows ?? []
@@ -14,8 +20,8 @@ export class PGResultParser implements ResultsParser<PostgresQueryResult<any>> {
       command === 'MERGE'
     ) {
       return {
-        rows,
         numAffectedRows: BigInt(results.rowCount),
+        rows,
       }
     }
 

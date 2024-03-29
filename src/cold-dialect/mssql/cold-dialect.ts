@@ -1,7 +1,6 @@
 import {
   MssqlAdapter,
   MssqlIntrospector,
-  MssqlQueryCompiler,
   type DatabaseIntrospector,
   type DialectAdapter,
   type Kysely,
@@ -9,6 +8,7 @@ import {
 } from 'kysely'
 import type {ColdDialect} from '../cold-dialect.js'
 import type {ResultsParser} from '../results-parser.js'
+import {MSSQLKnexQueryBuilder} from './query-compiler.js'
 import {MSSQLResultsParser} from './results-parser.js'
 
 export class MSSQLColdDialect implements ColdDialect {
@@ -21,7 +21,7 @@ export class MSSQLColdDialect implements ColdDialect {
   }
 
   createQueryCompiler(): QueryCompiler {
-    return new MssqlQueryCompiler()
+    return new MSSQLKnexQueryBuilder()
   }
 
   createResultsParser(): ResultsParser {

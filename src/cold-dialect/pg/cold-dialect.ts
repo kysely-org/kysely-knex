@@ -1,7 +1,6 @@
 import {
   PostgresAdapter,
   PostgresIntrospector,
-  PostgresQueryCompiler,
   type DatabaseIntrospector,
   type DialectAdapter,
   type Kysely,
@@ -9,6 +8,7 @@ import {
 } from 'kysely'
 import type {ColdDialect} from '../cold-dialect.js'
 import type {ResultsParser} from '../results-parser.js'
+import {PGKnexQueryCompiler} from './query-compiler.js'
 import {PGResultParser} from './results-parser.js'
 
 export class PGColdDialect implements ColdDialect {
@@ -21,7 +21,7 @@ export class PGColdDialect implements ColdDialect {
   }
 
   createQueryCompiler(): QueryCompiler {
-    return new PostgresQueryCompiler()
+    return new PGKnexQueryCompiler()
   }
 
   createResultsParser(): ResultsParser {

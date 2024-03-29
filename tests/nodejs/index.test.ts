@@ -1,4 +1,5 @@
-import {DeleteResult, InsertResult, UpdateResult} from 'kysely'
+import {DeleteResult, InsertResult, UpdateResult, sql} from 'kysely'
+import {pick} from 'lodash'
 import {expectType} from 'tsd'
 import {
   DEFAULT_DATA_SET,
@@ -31,14 +32,20 @@ for (const dialect of SUPPORTED_DIALECTS) {
     it('should be able to perform select queries', async () => {
       const knexPeople = await ctx.knex.from('person').select('*')
 
-      const kyselyPeople = await ctx.kysely.selectFrom('person').selectAll().execute()
+      const kyselyPeople = await ctx.kysely
+        .selectFrom('person')
+        .selectAll()
+        .execute()
 
       expect(kyselyPeople).to.deep.equal(knexPeople)
       expectType<typeof knexPeople>(kyselyPeople)
     })
 
     it('should be able to perform insert queries', async () => {
-      const result = await ctx.kysely.insertInto('person').values({gender: 'female'}).executeTakeFirstOrThrow()
+      const result = await ctx.kysely
+        .insertInto('person')
+        .values({gender: 'female'})
+        .executeTakeFirstOrThrow()
 
       expect(result).to.deep.equal(
         (
@@ -63,7 +70,11 @@ for (const dialect of SUPPORTED_DIALECTS) {
       )
     })
 
-    if (dialect === 'better-sqlite3' || dialect === 'pg' || dialect === 'sqlite3') {
+    if (
+      dialect === 'better-sqlite3' ||
+      dialect === 'pg' ||
+      dialect === 'sqlite3'
+    ) {
       it('should be able to perform insert queries with returning', async () => {
         const result = await ctx.kysely
           .insertInto('person')
@@ -96,7 +107,11 @@ for (const dialect of SUPPORTED_DIALECTS) {
       )
     })
 
-    if (dialect === 'better-sqlite3' || dialect === 'pg' || dialect === 'sqlite3') {
+    if (
+      dialect === 'better-sqlite3' ||
+      dialect === 'pg' ||
+      dialect === 'sqlite3'
+    ) {
       it('should be able to perform update queries with returning', async () => {
         const result = await ctx.kysely
           .updateTable('person')
@@ -110,7 +125,10 @@ for (const dialect of SUPPORTED_DIALECTS) {
     }
 
     it('should be able to perform delete queries', async () => {
-      const result = await ctx.kysely.deleteFrom('person').where('id', '=', 1).executeTakeFirstOrThrow()
+      const result = await ctx.kysely
+        .deleteFrom('person')
+        .where('id', '=', 1)
+        .executeTakeFirstOrThrow()
 
       expect(result).to.deep.equal(
         (
@@ -126,7 +144,11 @@ for (const dialect of SUPPORTED_DIALECTS) {
       )
     })
 
-    if (dialect === 'better-sqlite3' || dialect === 'pg' || dialect === 'sqlite3') {
+    if (
+      dialect === 'better-sqlite3' ||
+      dialect === 'pg' ||
+      dialect === 'sqlite3'
+    ) {
       it('should be able to perform delete queries with returning', async () => {
         const result = await ctx.kysely
           .deleteFrom('person')
@@ -138,15 +160,36 @@ for (const dialect of SUPPORTED_DIALECTS) {
       })
     }
 
-    it.skip('should be able to stream results', async () => {
-      const stream = ctx.kysely.selectFrom('person').selectAll().stream(1)
+    it('should be able to stream results', async () => {
+      const people: unknown[] = []
 
-      // let called = 0
-      for await (const chunk of stream) {
-        // expect(chunk).to.be.an('array').with.lengthOf(1)
-        // called++
+      const stream = ctx.kysely
+        .selectFrom('person')
+        .select(['first_name', 'last_name', 'gender'])
+        .stream(10)
+
+      for await (const person of stream) {
+        people.push(person)
       }
-      // expect(called).to.equal(DEFAULT_DATA_SET.length)
+
+      expect(people).to.have.length(DEFAULT_DATA_SET.length)
+      expect(people).to.eql(
+        DEFAULT_DATA_SET.map((datum) =>
+          pick(datum, ['first_name', 'last_name', 'gender']),
+        ),
+      )
     })
+
+    if (dialect === 'mssql' || dialect === 'pg') {
+      it('should be able to execute queries with literal question marks', async () => {
+        const message = 'ARE YOU NOT ENTERTAINED?? HUH?'
+
+        const result = await sql<{message: string}>`
+          select ${sql.lit(message)} as message
+        `.execute(ctx.kysely)
+
+        expect(result.rows).to.deep.equal([{message}])
+      })
+    }
   })
 }

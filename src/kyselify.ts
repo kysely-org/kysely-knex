@@ -7,13 +7,17 @@ import type {ColumnType} from 'kysely'
  * @example
  *
  * ```ts
- * import { Tables } from 'knex/types/tables'
+ * import type { Tables } from 'knex/types/tables'
  *
  * export type Database = KyselifyTables<Tables>
  * ```
  */
 export type KyselifyTables<T> = {
-  [TB in keyof T]: T[TB] extends Knex.CompositeTableType<infer S, infer I, infer U>
+  [TB in keyof T]: T[TB] extends Knex.CompositeTableType<
+    infer S,
+    infer I,
+    infer U
+  >
     ? {
         [C in keyof S]-?: C extends keyof I & keyof U
           ? ColumnType<S[C], I[C], U[C]>
@@ -24,6 +28,8 @@ export type KyselifyTables<T> = {
               : ColumnType<S[C], never, never> // GeneratedAlways<S[C]>
       }
     : {
-        [C in keyof T[TB]]-?: undefined extends T[TB][C] ? Exclude<T[TB][C], undefined> | null : T[TB][C]
+        [C in keyof T[TB]]-?: undefined extends T[TB][C]
+          ? Exclude<T[TB][C], undefined> | null
+          : T[TB][C]
       }
 }

@@ -16,7 +16,14 @@ import {
 import '../tables'
 export {expect} from 'chai'
 
-export const SUPPORTED_DIALECTS = ['better-sqlite3', 'mssql', 'mysql', 'mysql2', 'pg', 'sqlite3'] as const
+export const SUPPORTED_DIALECTS = [
+  'better-sqlite3',
+  'mssql',
+  'mysql',
+  'mysql2',
+  'pg',
+  'sqlite3',
+] as const
 
 export type SupportedDialect = (typeof SUPPORTED_DIALECTS)[number]
 
@@ -128,7 +135,10 @@ export const CONFIGS: PerDialect<
   },
 }
 
-export async function initTest(ctx: Mocha.Context, dialect: SupportedDialect): Promise<TestContext> {
+export async function initTest(
+  ctx: Mocha.Context,
+  dialect: SupportedDialect,
+): Promise<TestContext> {
   const config = CONFIGS[dialect]
 
   ctx.timeout(TEST_INIT_TIMEOUT)
@@ -166,7 +176,9 @@ async function connect(config: Knex.Config): Promise<Knex> {
         await kneks.destroy().catch((error) => error)
       }
 
-      console.log('Waiting for the database to become available. Did you remember to run `docker-compose up`?')
+      console.log(
+        'Waiting for the database to become available. Did you remember to run `docker-compose up`?',
+      )
 
       await sleep(1_000)
     }
@@ -249,7 +261,9 @@ export const DEFAULT_DATA_SET: (Insertable<Database['person']> & {
 ]
 
 export async function seedDatabase(ctx: TestContext): Promise<void> {
-  const personInsertionQuery = ctx.knex('person').insert(DEFAULT_DATA_SET.map((person) => omit(person, 'pets')))
+  const personInsertionQuery = ctx
+    .knex('person')
+    .insert(DEFAULT_DATA_SET.map((person) => omit(person, 'pets')))
   let personIds: number[]
 
   if (['better-sqlite3', 'pg', 'mssql', 'sqlite3'].includes(ctx.dialect)) {
