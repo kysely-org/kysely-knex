@@ -12,7 +12,7 @@ import {
   SQLite3ColdDialect,
   type KyselifyTables,
   type KyselyKnexDialectConfig,
-} from '../../src'
+} from '../..'
 import '../tables'
 export {expect} from 'chai'
 
