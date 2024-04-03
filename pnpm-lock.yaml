@@ -61,7 +61,7 @@ devDependencies:
     version: 4.17.21
   mocha:
     specifier: ^10.3.0
-    version: 10.3.0
+    version: 10.4.0
   mysql:
     specifier: ^2.18.1
     version: 2.18.1
@@ -2709,6 +2709,7 @@ packages:
 
   /glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
+    requiresBuild: true
     dependencies:
       fs.realpath: 1.0.0
       inflight: 1.0.6
@@ -3692,8 +3693,8 @@ packages:
     hasBin: true
     dev: true
 
-  /mocha@10.3.0:
-    resolution: {integrity: sha512-uF2XJs+7xSLsrmIvn37i/wnc91nw7XjOQB8ccyx5aEgdnohr7n+rEiZP23WkCYHjilR6+EboEnbq/ZQDz4LSbg==}
+  /mocha@10.4.0:
+    resolution: {integrity: sha512-eqhGB8JKapEYcC4ytX/xrzKforgEc3j1pGlAXVy3eRwrtAy5/nIfT1SvgGzfN0XZZxeLq0aQWkOUAmqIJiv+bA==}
     engines: {node: '>= 14.0.0'}
     hasBin: true
     dependencies:
@@ -4029,6 +4030,7 @@ packages:
   /path-is-absolute@1.0.1:
     resolution: {integrity: sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
     dev: true
 
   /path-key@3.1.1:
