@@ -70,10 +70,10 @@ devDependencies:
     version: 3.9.2
   pg:
     specifier: ^8.11.3
-    version: 8.11.3
+    version: 8.11.5
   pg-query-stream:
     specifier: ^4.5.3
-    version: 4.5.3(pg@8.11.3)
+    version: 4.5.3(pg@8.11.5)
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -1521,11 +1521,6 @@ packages:
 
   /buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
-    dev: true
-
-  /buffer-writer@2.0.0:
-    resolution: {integrity: sha512-a7ZpuTZU1TRtnwyCNW3I5dc0wWNC3VR9S++Ewyk2HHZdrO3CQJqSpd+95Us590V6AL7JqUAH2IwZ/398PmNFgw==}
-    engines: {node: '>=4'}
     dev: true
 
   /buffer@5.7.1:
@@ -3356,7 +3351,7 @@ packages:
       lodash: 4.17.21
       mysql: 2.18.1
       mysql2: 3.9.2
-      pg: 8.11.3
+      pg: 8.11.5
       pg-connection-string: 2.6.2
       rechoir: 0.8.0
       resolve-from: 5.0.0
@@ -4001,10 +3996,6 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /packet-reader@1.0.0:
-    resolution: {integrity: sha512-HAKu/fG3HpHFO0AA8WE8q2g+gBJaZ9MG7fcKk+IJPLTGAD6Psw4443l+9DGRbOIh3/aXr7Phy0TjilYivJo5XQ==}
-    dev: true
-
   /parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
@@ -4069,12 +4060,16 @@ packages:
     resolution: {integrity: sha512-ch6OwaeaPYcova4kKZ15sbJ2hKb/VP48ZD2gE7i1J+L4MspCtBMAx8nMgz7bksc7IojCIIWuEhHibSMFH8m8oA==}
     dev: true
 
-  /pg-cursor@2.10.3(pg@8.11.3):
+  /pg-connection-string@2.6.4:
+    resolution: {integrity: sha512-v+Z7W/0EO707aNMaAEfiGnGL9sxxumwLl2fJvCQtMn9Fxsg+lPpPkdcyBSv/KFgpGdYkMfn+EI1Or2EHjpgLCA==}
+    dev: true
+
+  /pg-cursor@2.10.3(pg@8.11.5):
     resolution: {integrity: sha512-rDyBVoqPVnx/PTmnwQAYgusSeAKlTL++gmpf5klVK+mYMFEqsOc6VHHZnPKc/4lOvr4r6fiMuoxSFuBF1dx4FQ==}
     peerDependencies:
       pg: ^8
     dependencies:
-      pg: 8.11.3
+      pg: 8.11.5
     dev: true
 
   /pg-int8@1.0.1:
@@ -4082,25 +4077,25 @@ packages:
     engines: {node: '>=4.0.0'}
     dev: true
 
-  /pg-pool@3.6.1(pg@8.11.3):
-    resolution: {integrity: sha512-jizsIzhkIitxCGfPRzJn1ZdcosIt3pz9Sh3V01fm1vZnbnCMgmGl5wvGGdNN2EL9Rmb0EcFoCkixH4Pu+sP9Og==}
+  /pg-pool@3.6.2(pg@8.11.5):
+    resolution: {integrity: sha512-Htjbg8BlwXqSBQ9V8Vjtc+vzf/6fVUuak/3/XXKA9oxZprwW3IMDQTGHP+KDmVL7rtd+R1QjbnCFPuTHm3G4hg==}
     peerDependencies:
       pg: '>=8.0'
     dependencies:
-      pg: 8.11.3
+      pg: 8.11.5
     dev: true
 
-  /pg-protocol@1.6.0:
-    resolution: {integrity: sha512-M+PDm637OY5WM307051+bsDia5Xej6d9IR4GwJse1qA1DIhiKlksvrneZOYQq42OM+spubpcNYEo2FcKQrDk+Q==}
+  /pg-protocol@1.6.1:
+    resolution: {integrity: sha512-jPIlvgoD63hrEuihvIg+tJhoGjUsLPn6poJY9N5CnlPd91c2T18T/9zBtLxZSb1EhYxBRoZJtzScCaWlYLtktg==}
     dev: true
 
-  /pg-query-stream@4.5.3(pg@8.11.3):
+  /pg-query-stream@4.5.3(pg@8.11.5):
     resolution: {integrity: sha512-ufa94r/lHJdjAm3+zPZEO0gXAmCb4tZPaOt7O76mjcxdL/HxwTuryy76km+u0odBBgtfdKFYq/9XGfiYeQF0yA==}
     peerDependencies:
       pg: ^8
     dependencies:
-      pg: 8.11.3
-      pg-cursor: 2.10.3(pg@8.11.3)
+      pg: 8.11.5
+      pg-cursor: 2.10.3(pg@8.11.5)
     dev: true
 
   /pg-types@2.2.0:
@@ -4114,8 +4109,8 @@ packages:
       postgres-interval: 1.2.0
     dev: true
 
-  /pg@8.11.3:
-    resolution: {integrity: sha512-+9iuvG8QfaaUrrph+kpF24cXkH1YOOUeArRNYIxq1viYHZagBxrTno7cecY1Fa44tJeZvaoG+Djpkc3JwehN5g==}
+  /pg@8.11.5:
+    resolution: {integrity: sha512-jqgNHSKL5cbDjFlHyYsCXmQDrfIX/3RsNwYqpd4N0Kt8niLuNoRNH+aazv6cOd43gPh9Y4DjQCtb+X0MH0Hvnw==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
       pg-native: '>=3.0.1'
@@ -4123,11 +4118,9 @@ packages:
       pg-native:
         optional: true
     dependencies:
-      buffer-writer: 2.0.0
-      packet-reader: 1.0.0
-      pg-connection-string: 2.6.2
-      pg-pool: 3.6.1(pg@8.11.3)
-      pg-protocol: 1.6.0
+      pg-connection-string: 2.6.4
+      pg-pool: 3.6.2(pg@8.11.5)
+      pg-protocol: 1.6.1
       pg-types: 2.2.0
       pgpass: 1.0.5
     optionalDependencies:
