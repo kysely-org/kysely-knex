@@ -19,7 +19,7 @@ devDependencies:
     version: 10.0.6
   '@types/node':
     specifier: ^20.11.30
-    version: 20.11.30
+    version: 20.12.3
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.3.1
     version: 7.3.1(@typescript-eslint/parser@7.5.0)(eslint@8.57.0)(typescript@5.4.3)
@@ -90,8 +90,8 @@ devDependencies:
     specifier: ^18.1.0
     version: 18.1.0
   tsd:
-    specifier: ^0.30.7
-    version: 0.30.7
+    specifier: ^0.31.0
+    version: 0.31.0
   tsup:
     specifier: ^8.0.2
     version: 8.0.2(typescript@5.4.3)
@@ -997,8 +997,8 @@ packages:
     resolution: {integrity: sha512-sqgsT69YFeLWf5NtJ4Xq/xAF8p4ZQHlmGW74Nu2tD4+g5fAsposc4ZfaaPixVu4y01BEiDCWLRDCvDM5JOsRxg==}
     dev: true
 
-  /@tsd/typescript@5.3.3:
-    resolution: {integrity: sha512-CQlfzol0ldaU+ftWuG52vH29uRoKboLinLy84wS8TQOu+m+tWoaUfk4svL4ij2V8M5284KymJBlHUusKj6k34w==}
+  /@tsd/typescript@5.4.3:
+    resolution: {integrity: sha512-htCVCSQP58wZcLfQaT7ikW9hSjJN7ntIe0HzAfYpBauI0tYoIM0ow4XEZGFwYN266qEsJoOHhlnkNvz/gLrx4Q==}
     engines: {node: '>=14.17'}
     dev: true
 
@@ -1037,8 +1037,8 @@ packages:
     resolution: {integrity: sha512-dJvrYWxP/UcXm36Qn36fxhUKu8A/xMRXVT2cliFF1Z7UA9liG5Psj3ezNSZw+5puH2czDXRLcXQxf8JbJt0ejg==}
     dev: true
 
-  /@types/node@20.11.30:
-    resolution: {integrity: sha512-dHM6ZxwlmuZaRmUPfv1p+KrdD1Dci04FbdEm/9wEMouFqxYoFl5aMkt0VMAUtYRQDyYvD41WJLukhq/ha3YuTw==}
+  /@types/node@20.12.3:
+    resolution: {integrity: sha512-sD+ia2ubTeWrOu+YMF+MTAB7E+O7qsMqAbMfW7DG3K1URwhZ5hN1pLlRVGbf4wDFzSfikL05M17EyorS86jShw==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -1050,7 +1050,7 @@ packages:
   /@types/readable-stream@4.0.11:
     resolution: {integrity: sha512-R3eUMUTTKoIoaz7UpYLxvZCrOmCRPRbAmoDDHKcimTEySltaJhF8hLzj4+EzyDifiX5eK6oDQGSfmNnXjxZzYQ==}
     dependencies:
-      '@types/node': 20.11.30
+      '@types/node': 20.12.3
       safe-buffer: 5.1.2
     dev: true
 
@@ -4991,7 +4991,7 @@ packages:
       '@azure/identity': 3.4.2
       '@azure/keyvault-keys': 4.8.0
       '@js-joda/core': 5.6.2
-      '@types/node': 20.11.30
+      '@types/node': 20.12.3
       bl: 6.0.12
       iconv-lite: 0.6.3
       js-md4: 0.3.2
@@ -5068,12 +5068,12 @@ packages:
       strip-bom: 3.0.0
     dev: true
 
-  /tsd@0.30.7:
-    resolution: {integrity: sha512-oTiJ28D6B/KXoU3ww/Eji+xqHJojiuPVMwA12g4KYX1O72N93Nb6P3P3h2OAhhf92Xl8NIhb/xFmBZd5zw/xUw==}
+  /tsd@0.31.0:
+    resolution: {integrity: sha512-yjBiQ5n8OMv/IZOuhDjBy0ZLCoJ7rky/RxRh5W4sJ0oNNCU/kf6s3puPAkGNi59PptDdkcpUm+RsKSdjR2YbNg==}
     engines: {node: '>=14.16'}
     hasBin: true
     dependencies:
-      '@tsd/typescript': 5.3.3
+      '@tsd/typescript': 5.4.3
       eslint-formatter-pretty: 4.1.0
       globby: 11.1.0
       jest-diff: 29.7.0
