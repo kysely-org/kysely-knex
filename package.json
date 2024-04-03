@@ -73,7 +73,7 @@
     "prettier-plugin-pkg": "^0.18.1",
     "sqlite3": "^5.1.7",
     "tedious": "^18.1.0",
-    "tsd": "^0.30.7",
+    "tsd": "^0.31.0",
     "tsup": "^8.0.2",
     "typescript": "^5.4.3"
   },
