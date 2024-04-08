@@ -18,8 +18,8 @@ devDependencies:
     specifier: ^10.0.6
     version: 10.0.6
   '@types/node':
-    specifier: ^20.12.4
-    version: 20.12.4
+    specifier: ^20.12.5
+    version: 20.12.5
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.5.0
     version: 7.5.0(@typescript-eslint/parser@7.5.0)(eslint@8.57.0)(typescript@5.4.4)
@@ -1037,8 +1037,8 @@ packages:
     resolution: {integrity: sha512-dJvrYWxP/UcXm36Qn36fxhUKu8A/xMRXVT2cliFF1Z7UA9liG5Psj3ezNSZw+5puH2czDXRLcXQxf8JbJt0ejg==}
     dev: true
 
-  /@types/node@20.12.4:
-    resolution: {integrity: sha512-E+Fa9z3wSQpzgYQdYmme5X3OTuejnnTx88A6p6vkkJosR3KBz+HpE3kqNm98VE6cfLFcISx7zW7MsJkH6KwbTw==}
+  /@types/node@20.12.5:
+    resolution: {integrity: sha512-BD+BjQ9LS/D8ST9p5uqBxghlN+S42iuNxjsUGjeZobe/ciXzk2qb1B6IXc6AnRLS+yFJRpN2IPEHMzwspfDJNw==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -1050,7 +1050,7 @@ packages:
   /@types/readable-stream@4.0.11:
     resolution: {integrity: sha512-R3eUMUTTKoIoaz7UpYLxvZCrOmCRPRbAmoDDHKcimTEySltaJhF8hLzj4+EzyDifiX5eK6oDQGSfmNnXjxZzYQ==}
     dependencies:
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
       safe-buffer: 5.1.2
     dev: true
 
@@ -4948,7 +4948,7 @@ packages:
       '@azure/identity': 3.4.2
       '@azure/keyvault-keys': 4.8.0
       '@js-joda/core': 5.6.2
-      '@types/node': 20.12.4
+      '@types/node': 20.12.5
       bl: 6.0.12
       iconv-lite: 0.6.3
       js-md4: 0.3.2
