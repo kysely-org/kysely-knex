@@ -1,7 +1,9 @@
 import {join} from 'node:path'
-import {KyselyFsMigrationSource} from '../../dist/cjs'
+import {KyselyFsMigrationSource} from '../..'
 import {
+  CONFIGS,
   SUPPORTED_DIALECTS,
+  dropDatabase,
   expect,
   initTest,
   type TestContext,
@@ -13,13 +15,15 @@ for (const dialect of SUPPORTED_DIALECTS) {
     let migrationSource: KyselyFsMigrationSource
 
     before(async function () {
-      ctx = await initTest(this, 'pg')
+      ctx = await initTest(this, dialect)
       migrationSource = new KyselyFsMigrationSource({
+        kyselySubDialect: CONFIGS[dialect].kyselySubDialect,
         migrationDirectories: join(__dirname, 'migrations'),
       })
     })
 
     after(async () => {
+      await dropDatabase(ctx.knex)
       await ctx.kysely.destroy()
     })
 
