@@ -110,6 +110,8 @@ export async function down(_: Knex, kysely: Kysely<any>): Promise<void> {
 export const config = {transaction: false}
 ```
 
+Pass the migration source to all migrate commands as follows:
+
 `scripts/migrate-to-latest.ts`:
 
 ```ts
@@ -123,7 +125,24 @@ export const migrationSource = new KyselyFsMigrationSource({
   kysely,
 })
 
-await knex.migrate.latest({migrationSource}) // migrationSource should be passed to all migrate commands, just like in this example.
+await knex.migrate.latest({migrationSource})
+```
+
+or set the migration source globally as follows:
+
+`knexfile.js`:
+
+```js
+module.exports = {
+  ...
+  migrations: {
+    ...
+    migrationSource: new KyselyFsMigrationSource({
+      kysely: require('./src/kysely').kysely,
+    }),
+  },
+  ...
+}
 ```
 
 More ways to tackle this topic might be provided in the future. Stay tuned!
