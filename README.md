@@ -105,9 +105,6 @@ export async function up(_: Knex, kysely: Kysely<any>): Promise<void> {
 export async function down(_: Knex, kysely: Kysely<any>): Promise<void> {
   await kysely.schema.alterTable('dog_walker').dropColumn('email').execute()
 }
-
-// By default, Knex migrations are wrapped in a transaction. Kysely cannot re-use transactions created by Knex during migrations. To disable this behavior, add the following:
-export const config = {transaction: false}
 ```
 
 Pass the migration source to all migrate commands as follows:
@@ -121,8 +118,7 @@ import {knex} from '../src/knex'
 import {kysely} from '../src/kysely'
 
 export const migrationSource = new KyselyFsMigrationSource({
-  directory: join(__dirname, '../migrations'),
-  kysely,
+  migrationDirectories: join(__dirname, '../migrations'),
 })
 
 await knex.migrate.latest({migrationSource})
@@ -138,11 +134,14 @@ module.exports = {
   migrations: {
     ...
     migrationSource: new KyselyFsMigrationSource({
-      kysely: require('./src/kysely').kysely,
+      migrationDirectories: join(__dirname, 'migrations'),
     }),
+    ...
   },
   ...
 }
 ```
+
+This'll allow you to seamlessly transition to only use Kysely from a certain point in time. Then, you could gradually convert existing Knex migration files to use Kysely instead of Knex, as all migrations now receive a Kysely instance.
 
 More ways to tackle this topic might be provided in the future. Stay tuned!
