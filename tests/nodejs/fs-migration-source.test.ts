@@ -1,5 +1,5 @@
 import {join} from 'node:path'
-import {KyselyFsMigrationSource} from '../..'
+import {KyselyFsMigrationSource} from '../../dist/cjs'
 import {
   SUPPORTED_DIALECTS,
   expect,
