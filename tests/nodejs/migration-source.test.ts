@@ -8,15 +8,13 @@ import {
 } from './test-setup'
 
 for (const dialect of SUPPORTED_DIALECTS) {
-  describe.only(`KyselyFsMigrationSource: ${dialect}`, () => {
+  describe(`KyselyFsMigrationSource: ${dialect}`, () => {
     let ctx: TestContext
     let migrationSource: KyselyFsMigrationSource
 
     before(async function () {
       ctx = await initTest(this, 'pg')
       migrationSource = new KyselyFsMigrationSource({
-        knex: ctx.knex,
-        kysely: ctx.kysely,
         migrationDirectories: join(__dirname, 'migrations'),
       })
     })

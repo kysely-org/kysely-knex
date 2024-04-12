@@ -11,5 +11,3 @@ export async function up(_: Knex, kysely: Kysely<any>): Promise<void> {
 export async function down(_: Knex, kysely: Kysely<any>): Promise<void> {
   await kysely.schema.alterTable('dog_walker').dropColumn('email').execute()
 }
-
-export const config = {transaction: false}
