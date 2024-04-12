@@ -113,12 +113,13 @@ export const config = {transaction: false}
 `scripts/migrate-to-latest.ts`:
 
 ```ts
+import {join} from 'node:path'
 import {KyselyFsMigrationSource} from 'kysely-knex'
 import {knex} from '../src/knex'
 import {kysely} from '../src/kysely'
 
 export const migrationSource = new KyselyFsMigrationSource({
-  directory: './migrations',
+  directory: join(__dirname, '../migrations'),
   kysely,
 })
 
