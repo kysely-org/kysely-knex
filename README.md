@@ -105,6 +105,9 @@ export async function up(_: Knex, kysely: Kysely<any>): Promise<void> {
 export async function down(_: Knex, kysely: Kysely<any>): Promise<void> {
   await kysely.schema.alterTable('dog_walker').dropColumn('email').execute()
 }
+
+// By default, Knex migrations are wrapped in a transaction. Kysely cannot re-use transactions created by Knex during migrations. To disable this behavior, add the following:
+export const config = {transaction: false}
 ```
 
 `scripts/migrate-to-latest.ts`:
