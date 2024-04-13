@@ -124,28 +124,6 @@ export const migrationSource = new KyselyFsMigrationSource({
 await knex.migrate.latest({migrationSource})
 ```
 
-or set the migration source globally as follows:
-
-`knexfile.js`:
-
-```js
-const {join} = require('node:path')
-const {KyselyFsMigrationSource, PGColdDialect} = require('kysely-knex')
-
-module.exports = {
-  // ...
-  migrations: {
-    // ...
-    migrationSource: new KyselyFsMigrationSource({
-      kyselySubDialect: new PGColdDialect(),
-      migrationDirectories: join(__dirname, 'migrations'),
-    }),
-    // ...
-  },
-  // ...
-}
-```
-
 This'll allow you to seamlessly transition to only use Kysely from a certain point in time. Then, you could gradually convert existing Knex migration files to use Kysely instead of Knex, as all migrations now receive a Kysely instance.
 
 More ways to tackle this topic might be provided in the future. Stay tuned!
