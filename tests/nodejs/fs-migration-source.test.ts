@@ -18,7 +18,7 @@ for (const dialect of SUPPORTED_DIALECTS) {
       ctx = await initTest(this, dialect)
       migrationSource = new KyselyFsMigrationSource({
         kyselySubDialect: CONFIGS[dialect].kyselySubDialect,
-        migrationDirectories: join(__dirname, 'migrations'),
+        migrationDirectories: join(__dirname, '../../migrations'),
       })
     })
 
