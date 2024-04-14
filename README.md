@@ -8,7 +8,7 @@ Knex IS legendary, but since it was created before TypeScript blew up, it's type
 
 Kysely (pronounced “Key-Seh-Lee”) is a type-safe and autocompletion-friendly TypeScript SQL query builder. Inspired by Knex. Mainly developed for Node.js but also runs on Deno and in the browser.
 
-kysely-knex is a toolkit (dialect, type translators, etc.) that allows using your existing Knex setup with Kysely. This'll allow you to gradually migrate your codebase from Knex to Kysely.
+kysely-knex is a toolkit (dialect, type translators, custom migration source, etc.) that allows using your existing Knex setup with Kysely. This'll allow you to gradually migrate your codebase from Knex to Kysely.
 
 ## Installation
 
