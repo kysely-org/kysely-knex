@@ -1,6 +1,6 @@
 {
   "name": "kysely-knex",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Kysely dialect for Knex.js",
   "repository": "https://github.com/kysely-org/kysely-knex.git",
   "homepage": "https://github.com/kysely-org/kysely-knex",
