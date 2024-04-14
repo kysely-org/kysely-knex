@@ -113,11 +113,12 @@ Pass the migration source to all migrate commands as follows:
 
 ```ts
 import {join} from 'node:path'
-import {KyselyFsMigrationSource} from 'kysely-knex'
+import {KyselyFsMigrationSource, PGColdDialect} from 'kysely-knex'
 import {knex} from '../src/knex'
 import {kysely} from '../src/kysely'
 
 export const migrationSource = new KyselyFsMigrationSource({
+  kyselySubDialect: new PGColdDialect(),
   migrationDirectories: join(__dirname, '../migrations'),
 })
 
