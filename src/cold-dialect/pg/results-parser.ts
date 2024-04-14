@@ -1,5 +1,5 @@
 import type {PostgresQueryResult, QueryResult} from 'kysely'
-import type {ResultsParser} from '../results-parser'
+import type {ResultsParser} from '../results-parser.js'
 
 export class PGResultParser implements ResultsParser<PostgresQueryResult<any>> {
   parseResults(

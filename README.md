@@ -81,3 +81,49 @@ export const kysely = new Kysely<Database>({
 ```
 
 For other dialects, simply swap `PGColdDialect` with `MySQLColdDialect`, `MySQL2ColdDialect`, `MSSQLColdDialect`, `SQLite3ColdDialect` or `BetterSQLite3ColdDialect`.
+
+### Migrations
+
+There are a few ways to tackle migrations given you have an existing Knex migration setup:
+
+1. Delete all existing migrations and start fresh with Kysely migrations.
+2. Use our [custom migration source](https://knexjs.org/guide/migrations.html#custom-migration-sources) `KyselyFsMigrationSource` to provide a Kysely instance to your Knex-managed migrations:
+
+`migrations/20240101000000_add_email_column.ts`:
+
+```ts
+import type {Knex} from 'knex'
+import type {Kysely} from 'kysely'
+
+export async function up(_: Knex, kysely: Kysely<any>): Promise<void> {
+  await kysely.schema
+    .alterTable('dog_walker')
+    .addColumn('email', 'varchar', (cb) => cb.unique())
+    .execute()
+}
+
+export async function down(_: Knex, kysely: Kysely<any>): Promise<void> {
+  await kysely.schema.alterTable('dog_walker').dropColumn('email').execute()
+}
+```
+
+Pass the migration source to all migrate commands as follows:
+
+`scripts/migrate-to-latest.ts`:
+
+```ts
+import {join} from 'node:path'
+import {KyselyFsMigrationSource} from 'kysely-knex'
+import {knex} from '../src/knex'
+import {kysely} from '../src/kysely'
+
+export const migrationSource = new KyselyFsMigrationSource({
+  migrationDirectories: join(__dirname, '../migrations'),
+})
+
+await knex.migrate.latest({migrationSource})
+```
+
+This'll allow you to seamlessly transition to only use Kysely from a certain point in time. Then, you could gradually convert existing Knex migration files to use Kysely instead of Knex, as all migrations now receive a Kysely instance.
+
+More ways to tackle this topic might be provided in the future. Stay tuned!
