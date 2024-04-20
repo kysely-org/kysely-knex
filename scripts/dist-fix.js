@@ -4,7 +4,6 @@ const {
   rename,
   rm,
   writeFile,
-  copyFile,
   readFile,
   unlink,
 } = require('node:fs/promises')
@@ -28,9 +27,9 @@ const path = require('node:path')
       JSON.stringify({type: 'module', sideEffects: false}),
     ),
     ...dist
-      .filter((distFilePath) => distFilePath.match(/\.d\.ts$/))
+      .filter((distFilePath) => distFilePath.match(/\.d\.mts$/))
       .map((distFilePath) =>
-        copyFile(
+        rename(
           path.join(distPath, distFilePath),
           path.join(distEsmPath, distFilePath),
         ),
@@ -43,7 +42,7 @@ const path = require('node:path')
         const esmFile = await readFile(distEsmFilePath)
         const esmFileContents = esmFile.toString()
 
-        const dtsFilePath = `./${esmFilePath.replace('.js', '.d.ts')}`
+        const dtsFilePath = `./${esmFilePath.replace('.js', '.d.mts')}`
 
         const denoFriendlyEsmFileContents = [
           `/// <reference types="${dtsFilePath}" />`,
