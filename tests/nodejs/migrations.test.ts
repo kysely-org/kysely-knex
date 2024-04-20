@@ -1,6 +1,6 @@
 import type {FsMigrations} from 'knex/lib/migrations/migrate/sources/fs-migrations.js'
 import {join} from 'node:path'
-import {KyselyFsMigrationSource} from '../..'
+import {KyselyFsMigrationSource} from '../../dist/esm/migrations'
 import {
   CONFIGS,
   SUPPORTED_DIALECTS,

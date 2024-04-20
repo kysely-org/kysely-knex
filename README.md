@@ -113,7 +113,8 @@ Pass the migration source to all migrate commands as follows:
 
 ```ts
 import {join} from 'node:path'
-import {KyselyFsMigrationSource, PGColdDialect} from 'kysely-knex'
+import {PGColdDialect} from 'kysely-knex'
+import {KyselyFsMigrationSource} from 'kysely-knex/migrations'
 import {knex} from '../src/knex'
 import {kysely} from '../src/kysely'
 
@@ -130,7 +131,8 @@ or pass it to Knex CLI globally:
 `knexfile.ts`:
 
 ```ts
-const {KyselyFsMigrationSource, PGColdDialect} = require('kysely-knex')
+const {PGColdDialect} = require('kysely-knex')
+const {KyselyFsMigrationSource} = require('kysely-knex/migrations')
 
 module.exports = {
   // ...

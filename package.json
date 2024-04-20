@@ -12,6 +12,10 @@
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
+    },
+    "./migrations": {
+      "import": "./dist/esm/migrations.js",
+      "require": "./dist/cjs/migrations.js"
     }
   },
   "files": [
