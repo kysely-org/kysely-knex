@@ -1,4 +1,3 @@
-import type {FsMigrations} from 'knex/lib/migrations/migrate/sources/fs-migrations.js'
 import {join} from 'node:path'
 import {KyselyFsMigrationSource} from '../../dist/esm/migrations'
 import {
@@ -13,7 +12,7 @@ import {
 for (const dialect of SUPPORTED_DIALECTS) {
   describe(`KyselyFsMigrationSource: ${dialect}`, () => {
     let ctx: TestContext
-    let migrationSource: FsMigrations
+    let migrationSource: InstanceType<typeof KyselyFsMigrationSource>
 
     before(async function () {
       ctx = await initTest(this, dialect)
