@@ -8,7 +8,6 @@ export default defineConfig({
     migrations: 'src/migrations/index.ts',
   },
   format: ['cjs', 'esm'],
-  legacyOutput: true,
   outDir: 'dist',
   sourcemap: true,
 })

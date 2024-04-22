@@ -1,5 +1,5 @@
-const {PGColdDialect} = require('./dist/cjs')
-const {KyselyFsMigrationSource} = require('./dist/cjs/migrations')
+const {PGColdDialect} = require('./dist')
+const {KyselyFsMigrationSource} = require('./dist/migrations')
 
 module.exports = {
   client: 'pg',

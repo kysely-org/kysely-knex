@@ -6,16 +6,16 @@
   "homepage": "https://github.com/kysely-org/kysely-knex",
   "author": "Igal Klebanov <igalklebanov@gmail.com>",
   "license": "MIT",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     },
     "./migrations": {
-      "import": "./dist/esm/migrations.js",
-      "require": "./dist/cjs/migrations.js"
+      "import": "./dist/migrations.mjs",
+      "require": "./dist/migrations.js"
     }
   },
   "files": [

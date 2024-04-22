@@ -1,5 +1,5 @@
 import {join} from 'node:path'
-import {KyselyFsMigrationSource} from '../../dist/esm/migrations'
+import {KyselyFsMigrationSource} from '../../dist/migrations'
 import {
   CONFIGS,
   SUPPORTED_DIALECTS,
