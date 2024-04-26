@@ -52,7 +52,7 @@ devDependencies:
     version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.2.5)
   knex:
     specifier: ^3.1.0
-    version: 3.1.0(better-sqlite3@9.5.0)(mysql2@3.9.7)(mysql@2.18.1)(pg@8.11.5)(sqlite3@5.1.7)(tedious@18.1.0)
+    version: 3.1.0(better-sqlite3@9.5.0)(mysql2@3.9.7)(mysql@2.18.1)(pg@8.11.5)(sqlite3@5.1.7)(tedious@18.2.0)
   kysely:
     specifier: ^0.27.3
     version: 0.27.3
@@ -87,8 +87,8 @@ devDependencies:
     specifier: ^5.1.7
     version: 5.1.7
   tedious:
-    specifier: ^18.1.0
-    version: 18.1.0
+    specifier: ^18.2.0
+    version: 18.2.0
   ts-node:
     specifier: ^10.9.2
     version: 10.9.2(@types/node@20.12.7)(typescript@5.4.5)
@@ -3362,7 +3362,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /knex@3.1.0(better-sqlite3@9.5.0)(mysql2@3.9.7)(mysql@2.18.1)(pg@8.11.5)(sqlite3@5.1.7)(tedious@18.1.0):
+  /knex@3.1.0(better-sqlite3@9.5.0)(mysql2@3.9.7)(mysql@2.18.1)(pg@8.11.5)(sqlite3@5.1.7)(tedious@18.2.0):
     resolution: {integrity: sha512-GLoII6hR0c4ti243gMs5/1Rb3B+AjwMOfjYm97pu0FOQa7JH56hgBxYf5WK2525ceSbBY1cjeZ9yk99GPMB6Kw==}
     engines: {node: '>=16'}
     hasBin: true
@@ -3408,7 +3408,7 @@ packages:
       resolve-from: 5.0.0
       sqlite3: 5.1.7
       tarn: 3.0.2
-      tedious: 18.1.0
+      tedious: 18.2.0
       tildify: 2.0.0
     transitivePeerDependencies:
       - supports-color
@@ -4997,8 +4997,8 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: true
 
-  /tedious@18.1.0:
-    resolution: {integrity: sha512-3o9VZDPY9B5JBEsD0BuLXxvyRDFP11YVQS3JXr1JmV+0aISbpsn/Hj9LycyxAGBzdD1gU4Z2ME5RGq43QHdRNw==}
+  /tedious@18.2.0:
+    resolution: {integrity: sha512-PCELoE17gN71lk0A87+WITcIJ6uGagrV2hXVJT5ige/Yef+YCLVpQ/Je12rOZT7vBhVZoMp6MvaBmbfI8fw0ag==}
     engines: {node: '>=18'}
     dependencies:
       '@azure/identity': 3.4.2

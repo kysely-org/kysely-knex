@@ -73,7 +73,7 @@
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-pkg": "^0.18.1",
     "sqlite3": "^5.1.7",
-    "tedious": "^18.1.0",
+    "tedious": "^18.2.0",
     "ts-node": "^10.9.2",
     "tsd": "^0.31.0",
     "tsup": "^8.0.2",
