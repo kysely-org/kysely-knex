@@ -8,10 +8,12 @@ const path = require('node:path')
 
   // Inject type declarations for deno.
   // See https://docs.deno.com/runtime/manual/advanced/typescript/types
-  await Promise.all([
-    ...dist
-      .filter((filePath) => filePath.match(/\.m?js$/))
-      .filter((filePath) => !filePath.startsWith('chunk-'))
+  await Promise.all(
+    dist
+      .filter(
+        (filePath) =>
+          filePath.match(/\.m?js$/) && !filePath.startsWith('chunk-'),
+      )
       .map(async (filename) => {
         const distFilePath = path.join(distPath, filename)
 
@@ -22,5 +24,5 @@ const path = require('node:path')
 
         await writeFile(distFilePath, denoFriendlyJsFileContents)
       }),
-  ])
+  )
 })()
