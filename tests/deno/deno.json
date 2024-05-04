@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "knex": "npm:knex@^3.1.0",
+    "kysely": "npm:kysely@^0.27.3",
+    "pg": "npm:pg@^8.11.3"
+  }
+}

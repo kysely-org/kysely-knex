@@ -43,6 +43,7 @@
     "test": "pnpm build && pnpm test:nodejs && pnpm test:migrations",
     "test:migrations": "knex --knexfile ./knexfile.ts migrate:latest && knex --knexfile ./knexfile.ts migrate:rollback",
     "test:nodejs": "mocha ./tests/nodejs",
+    "test:deno": "deno run --allow-env --allow-read tests/deno/index.test.ts && deno run tests/deno/fs-migration-source.test.ts",
     "test:types": "attw --pack .",
     "type-check": "tsc --noEmit"
   },
