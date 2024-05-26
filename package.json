@@ -6,12 +6,16 @@
   "homepage": "https://github.com/kysely-org/kysely-knex",
   "author": "Igal Klebanov <igalklebanov@gmail.com>",
   "license": "MIT",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./migrations": {
+      "import": "./dist/migrations.mjs",
+      "require": "./dist/migrations.js"
     }
   },
   "files": [
@@ -39,6 +43,8 @@
     "test": "pnpm build && pnpm test:nodejs && pnpm test:migrations",
     "test:migrations": "knex --knexfile ./knexfile.ts migrate:latest && knex --knexfile ./knexfile.ts migrate:rollback",
     "test:nodejs": "mocha ./tests/nodejs",
+    "test:deno": "deno run --allow-env --allow-read tests/deno/index.test.ts && deno run tests/deno/fs-migration-source.test.ts",
+    "test:types": "attw --pack .",
     "type-check": "tsc --noEmit"
   },
   "peerDependencies": {
@@ -46,6 +52,7 @@
     "kysely": ">= 0.24.0 < 1"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.3",
     "@tsconfig/node20": "^20.1.3",
     "@types/chai": "^4.3.14",
     "@types/lodash": "^4.17.4",

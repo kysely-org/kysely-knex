@@ -1,5 +1,5 @@
 import {join} from 'node:path'
-import {KyselyFsMigrationSource} from '../..'
+import {KyselyFsMigrationSource} from '../../dist/migrations'
 import {
   CONFIGS,
   SUPPORTED_DIALECTS,
@@ -12,7 +12,7 @@ import {
 for (const dialect of SUPPORTED_DIALECTS) {
   describe(`KyselyFsMigrationSource: ${dialect}`, () => {
     let ctx: TestContext
-    let migrationSource: KyselyFsMigrationSource
+    let migrationSource: InstanceType<typeof KyselyFsMigrationSource>
 
     before(async function () {
       ctx = await initTest(this, dialect)

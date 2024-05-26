@@ -2,8 +2,8 @@ import type {Knex} from 'knex'
 // @ts-ignore
 import {FsMigrations} from 'knex/lib/migrations/migrate/sources/fs-migrations.js'
 import {Kysely} from 'kysely'
-import type {ColdDialect} from './cold-dialect/cold-dialect.js'
-import {KyselyKnexDialect} from './dialect.js'
+import type {ColdDialect} from '../cold-dialect/cold-dialect.js'
+import {KyselyKnexDialect} from '../dialect.js'
 
 export interface KyselyFsMigrationSourceProps {
   kyselySubDialect: ColdDialect
