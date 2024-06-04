@@ -72,8 +72,8 @@ devDependencies:
     specifier: ^8.11.3
     version: 8.11.5
   pg-query-stream:
-    specifier: ^4.5.5
-    version: 4.5.5(pg@8.11.5)
+    specifier: ^4.6.0
+    version: 4.6.0(pg@8.11.5)
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -3891,8 +3891,8 @@ packages:
     resolution: {integrity: sha512-v+Z7W/0EO707aNMaAEfiGnGL9sxxumwLl2fJvCQtMn9Fxsg+lPpPkdcyBSv/KFgpGdYkMfn+EI1Or2EHjpgLCA==}
     dev: true
 
-  /pg-cursor@2.10.5(pg@8.11.5):
-    resolution: {integrity: sha512-wzgmyk+k9mwuYe30ylLA6qRWw2TBFSee4Bw23oTz66YL9RdRJjDi2TaROMMF+V3QB6QWB3FFCju22loDftjKkw==}
+  /pg-cursor@2.11.0(pg@8.11.5):
+    resolution: {integrity: sha512-TLCOCtu+rqMarzjUi+/Ffc2DV5ZqO/27y5GqnK9Z3w51rWXMwC8FcO96Uf9/ORo5o+qRXEVJxM9Ts3K2K31MLg==}
     peerDependencies:
       pg: ^8
     dependencies:
@@ -3916,13 +3916,13 @@ packages:
     resolution: {integrity: sha512-jPIlvgoD63hrEuihvIg+tJhoGjUsLPn6poJY9N5CnlPd91c2T18T/9zBtLxZSb1EhYxBRoZJtzScCaWlYLtktg==}
     dev: true
 
-  /pg-query-stream@4.5.5(pg@8.11.5):
-    resolution: {integrity: sha512-mBGxVdiR9O6SdkOcXBoZuxtHUQ0nSFIWcFauGMUteko+9rZcu97vE15JX/w8pdijQ+diLbiw8ijpV/V+VCUUtA==}
+  /pg-query-stream@4.6.0(pg@8.11.5):
+    resolution: {integrity: sha512-sg2Hewe6ge6osEY07zGu7Z8djrsQBvyiTy5ZjQffoSatEgnNNVsV3EWDm9Px/8R9oaAL1YnfnP8AXPMmfzujZg==}
     peerDependencies:
       pg: ^8
     dependencies:
       pg: 8.11.5
-      pg-cursor: 2.10.5(pg@8.11.5)
+      pg-cursor: 2.11.0(pg@8.11.5)
     dev: true
 
   /pg-types@2.2.0:
