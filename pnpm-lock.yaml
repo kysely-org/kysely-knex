@@ -60,8 +60,8 @@ devDependencies:
     specifier: ^4.17.21
     version: 4.17.21
   mocha:
-    specifier: ^10.5.0
-    version: 10.5.0
+    specifier: ^10.5.1
+    version: 10.5.1
   mysql:
     specifier: ^2.18.1
     version: 2.18.1
@@ -3517,8 +3517,8 @@ packages:
     hasBin: true
     dev: true
 
-  /mocha@10.5.0:
-    resolution: {integrity: sha512-KoCXMKfW2OMsvCbaJJFPdzg36lI9+tMH7yyXCoKh6PpFo7BAC/xqG7Ct/aitJDrGbIGcN2IT3cx3bZ6PDGaXmA==}
+  /mocha@10.5.1:
+    resolution: {integrity: sha512-eq5tEnaz2kM9ade8cuGJBMh5fBb9Ih/TB+ddlmPR+wLQmwLhUwa0ovqDlg7OTfKquW0BI7NUcNWX7DH8sC+3gw==}
     engines: {node: '>= 14.0.0'}
     hasBin: true
     dependencies:
