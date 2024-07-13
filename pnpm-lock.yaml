@@ -21,8 +21,8 @@ importers:
         specifier: ^10.0.7
         version: 10.0.7
       '@types/node':
-        specifier: ^20.14.9
-        version: 20.14.9
+        specifier: ^20.14.10
+        version: 20.14.10
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.16.0
         version: 7.16.0(@typescript-eslint/parser@7.16.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)
@@ -94,13 +94,13 @@ importers:
         version: 18.2.4
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@20.14.9)(typescript@5.5.3)
+        version: 10.9.2(@types/node@20.14.10)(typescript@5.5.3)
       tsd:
         specifier: ^0.31.1
         version: 0.31.1
       tsup:
         specifier: ^8.1.0
-        version: 8.1.0(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3))(typescript@5.5.3)
+        version: 8.1.0(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3)
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
@@ -686,8 +686,8 @@ packages:
   '@types/mocha@10.0.7':
     resolution: {integrity: sha512-GN8yJ1mNTcFcah/wKEFIJckJx9iJLoMSzWcfRRuxz/Jk+U6KQNnml+etbtxFK8lPjzOw3zp4Ha/kjSst9fsHYw==}
 
-  '@types/node@20.14.9':
-    resolution: {integrity: sha512-06OCtnTXtWOZBJlRApleWndH4JsRVs1pDCc8dLSQp+7PpUpX3ePdHyeNSFTeSe7FtKyQkrlPvHwJOW3SLd8Oyg==}
+  '@types/node@20.14.10':
+    resolution: {integrity: sha512-MdiXf+nDuMvY0gJKxyfZ7/6UFsETO7mGKF54MVD/ekJS6HdFtpZFBgrh6Pseu64XTb2MLyFPlbW6hj8HYRQNOQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -3428,7 +3428,7 @@ snapshots:
 
   '@types/mocha@10.0.7': {}
 
-  '@types/node@20.14.9':
+  '@types/node@20.14.10':
     dependencies:
       undici-types: 5.26.5
 
@@ -3436,7 +3436,7 @@ snapshots:
 
   '@types/readable-stream@4.0.11':
     dependencies:
-      '@types/node': 20.14.9
+      '@types/node': 20.14.10
       safe-buffer: 5.1.2
 
   '@typescript-eslint/eslint-plugin@7.16.0(@typescript-eslint/parser@7.16.0(eslint@8.57.0)(typescript@5.5.3))(eslint@8.57.0)(typescript@5.5.3)':
@@ -5320,12 +5320,12 @@ snapshots:
 
   possible-typed-array-names@1.0.0: {}
 
-  postcss-load-config@4.0.2(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3)):
+  postcss-load-config@4.0.2(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3)):
     dependencies:
       lilconfig: 3.1.1
       yaml: 2.4.1
     optionalDependencies:
-      ts-node: 10.9.2(@types/node@20.14.9)(typescript@5.5.3)
+      ts-node: 10.9.2(@types/node@20.14.10)(typescript@5.5.3)
 
   postgres-array@2.0.0: {}
 
@@ -5784,7 +5784,7 @@ snapshots:
       '@azure/identity': 4.3.0
       '@azure/keyvault-keys': 4.8.0
       '@js-joda/core': 5.6.2
-      '@types/node': 20.14.9
+      '@types/node': 20.14.10
       bl: 6.0.12
       iconv-lite: 0.6.3
       js-md4: 0.3.2
@@ -5823,14 +5823,14 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3):
+  ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.14.9
+      '@types/node': 20.14.10
       acorn: 8.11.3
       acorn-walk: 8.3.2
       arg: 4.1.3
@@ -5862,7 +5862,7 @@ snapshots:
 
   tslib@2.6.2: {}
 
-  tsup@8.1.0(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3))(typescript@5.5.3):
+  tsup@8.1.0(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))(typescript@5.5.3):
     dependencies:
       bundle-require: 4.0.2(esbuild@0.21.5)
       cac: 6.7.14
@@ -5872,7 +5872,7 @@ snapshots:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss-load-config: 4.0.2(ts-node@10.9.2(@types/node@20.14.9)(typescript@5.5.3))
+      postcss-load-config: 4.0.2(ts-node@10.9.2(@types/node@20.14.10)(typescript@5.5.3))
       resolve-from: 5.0.0
       rollup: 4.13.0
       source-map: 0.8.0-beta.0
