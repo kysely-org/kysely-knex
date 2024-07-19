@@ -76,7 +76,7 @@
     "tedious": "^18.2.4",
     "ts-node": "^10.9.2",
     "tsd": "^0.31.1",
-    "tsup": "^8.1.2",
+    "tsup": "^8.2.0",
     "typescript": "^5.5.3"
   },
   "sideEffects": false
