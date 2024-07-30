@@ -55,7 +55,7 @@ importers:
         version: 5.2.1(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.3.3)
       knex:
         specifier: ^3.1.0
-        version: 3.1.0(better-sqlite3@11.1.2)(mysql2@3.10.3)(mysql@2.18.1)(pg@8.12.0)(sqlite3@5.1.7)(tedious@18.3.0)
+        version: 3.1.0(better-sqlite3@11.1.2)(mysql2@3.11.0)(mysql@2.18.1)(pg@8.12.0)(sqlite3@5.1.7)(tedious@18.3.0)
       kysely:
         specifier: ^0.27.4
         version: 0.27.4
@@ -69,8 +69,8 @@ importers:
         specifier: ^2.18.1
         version: 2.18.1
       mysql2:
-        specifier: ^3.10.3
-        version: 3.10.3
+        specifier: ^3.11.0
+        version: 3.11.0
       pg:
         specifier: ^8.12.0
         version: 8.12.0
@@ -1966,8 +1966,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  mysql2@3.10.3:
-    resolution: {integrity: sha512-k43gmH9i79rZD4hGPdj7pDuT0UBiFjs4UzXEy1cJrV0QqcSABomoLwvejqdbcXN+Vd7gi999CVM6o9vCPKq29g==}
+  mysql2@3.11.0:
+    resolution: {integrity: sha512-J9phbsXGvTOcRVPR95YedzVSxJecpW5A5+cQ57rhHIFXteTP10HCs+VBjS7DHIKfEaI1zQ5tlVrquCd64A6YvA==}
     engines: {node: '>= 8.0'}
 
   mysql@2.18.1:
@@ -4645,7 +4645,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  knex@3.1.0(better-sqlite3@11.1.2)(mysql2@3.10.3)(mysql@2.18.1)(pg@8.12.0)(sqlite3@5.1.7)(tedious@18.3.0):
+  knex@3.1.0(better-sqlite3@11.1.2)(mysql2@3.11.0)(mysql@2.18.1)(pg@8.12.0)(sqlite3@5.1.7)(tedious@18.3.0):
     dependencies:
       colorette: 2.0.19
       commander: 10.0.1
@@ -4664,7 +4664,7 @@ snapshots:
     optionalDependencies:
       better-sqlite3: 11.1.2
       mysql: 2.18.1
-      mysql2: 3.10.3
+      mysql2: 3.11.0
       pg: 8.12.0
       sqlite3: 5.1.7
       tedious: 18.3.0
@@ -4885,7 +4885,7 @@ snapshots:
 
   ms@2.1.3: {}
 
-  mysql2@3.10.3:
+  mysql2@3.11.0:
     dependencies:
       aws-ssl-profiles: 1.1.1
       denque: 2.1.0
