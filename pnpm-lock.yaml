@@ -55,7 +55,7 @@ importers:
         version: 5.2.1(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.3.3)
       knex:
         specifier: ^3.1.0
-        version: 3.1.0(better-sqlite3@11.1.2)(mysql2@3.11.0)(mysql@2.18.1)(pg@8.12.0)(sqlite3@5.1.7)(tedious@18.3.0)
+        version: 3.1.0(better-sqlite3@11.1.2)(mysql2@3.11.0)(mysql@2.18.1)(pg@8.12.0)(sqlite3@5.1.7)(tedious@18.6.2)
       kysely:
         specifier: ^0.27.4
         version: 0.27.4
@@ -90,8 +90,8 @@ importers:
         specifier: ^5.1.7
         version: 5.1.7
       tedious:
-        specifier: ^18.3.0
-        version: 18.3.0
+        specifier: ^18.6.2
+        version: 18.6.2
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@22.4.0)(typescript@5.5.4)
@@ -2616,8 +2616,8 @@ packages:
     resolution: {integrity: sha512-51LAVKUSZSVfI05vjPESNc5vwqqZpbXCsU+/+wxlOrUjk2SnFTt97v9ZgQrD4YmxYW1Px6w2KjaDitCfkvgxMQ==}
     engines: {node: '>=8.0.0'}
 
-  tedious@18.3.0:
-    resolution: {integrity: sha512-/aVCX2VLu9Ihf5UyxifRXfmWQ1P8HNJvapk1as+LMzSdw9AmbNtEHllrffZpNrzBCptcK0Z4m06k+tutL2wowA==}
+  tedious@18.6.2:
+    resolution: {integrity: sha512-g7jC56o3MzLkE3lHkaFe2ZdOVFBahq5bsB60/M4NYUbocw/MCrS89IOEQUFr+ba6pb8ZHczZ/VqCyYeYq0xBAg==}
     engines: {node: '>=18'}
 
   text-table@0.2.0:
@@ -3155,7 +3155,7 @@ snapshots:
   '@npmcli/fs@1.1.1':
     dependencies:
       '@gar/promisify': 1.1.3
-      semver: 7.6.2
+      semver: 7.6.3
     optional: true
 
   '@npmcli/move-file@1.1.2':
@@ -4627,7 +4627,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  knex@3.1.0(better-sqlite3@11.1.2)(mysql2@3.11.0)(mysql@2.18.1)(pg@8.12.0)(sqlite3@5.1.7)(tedious@18.3.0):
+  knex@3.1.0(better-sqlite3@11.1.2)(mysql2@3.11.0)(mysql@2.18.1)(pg@8.12.0)(sqlite3@5.1.7)(tedious@18.6.2):
     dependencies:
       colorette: 2.0.19
       commander: 10.0.1
@@ -4649,7 +4649,7 @@ snapshots:
       mysql2: 3.11.0
       pg: 8.12.0
       sqlite3: 5.1.7
-      tedious: 18.3.0
+      tedious: 18.6.2
     transitivePeerDependencies:
       - supports-color
 
@@ -5587,7 +5587,7 @@ snapshots:
 
   tarn@3.0.2: {}
 
-  tedious@18.3.0:
+  tedious@18.6.2:
     dependencies:
       '@azure/core-auth': 1.7.2
       '@azure/identity': 4.3.0
