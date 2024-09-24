@@ -21,8 +21,8 @@ importers:
         specifier: ^10.0.8
         version: 10.0.8
       '@types/node':
-        specifier: ^22.6.0
-        version: 22.6.0
+        specifier: ^22.6.1
+        version: 22.6.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.7.0
         version: 8.7.0(@typescript-eslint/parser@8.7.0(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1)(typescript@5.6.2)
@@ -94,7 +94,7 @@ importers:
         version: 19.0.0
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@types/node@22.6.0)(typescript@5.6.2)
+        version: 10.9.2(@types/node@22.6.1)(typescript@5.6.2)
       tsd:
         specifier: ^0.31.2
         version: 0.31.2
@@ -706,8 +706,8 @@ packages:
   '@types/mocha@10.0.8':
     resolution: {integrity: sha512-HfMcUmy9hTMJh66VNcmeC9iVErIZJli2bszuXc6julh5YGuRb/W5OnkHjwLNYdFlMis0sY3If5SEAp+PktdJjw==}
 
-  '@types/node@22.6.0':
-    resolution: {integrity: sha512-QyR8d5bmq+eR72TwQDfujwShHMcIrWIYsaQFtXRE58MHPTEKUNxjxvl0yS0qPMds5xbSDWtp7ZpvGFtd7dfMdQ==}
+  '@types/node@22.6.1':
+    resolution: {integrity: sha512-V48tCfcKb/e6cVUigLAaJDAILdMP0fUW6BidkPK4GpGjXcfbnoHasCZDwz3N3yVt5we2RHm4XTQCpv0KJz9zqw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -3489,7 +3489,7 @@ snapshots:
 
   '@types/mocha@10.0.8': {}
 
-  '@types/node@22.6.0':
+  '@types/node@22.6.1':
     dependencies:
       undici-types: 6.19.6
 
@@ -3497,7 +3497,7 @@ snapshots:
 
   '@types/readable-stream@4.0.11':
     dependencies:
-      '@types/node': 22.6.0
+      '@types/node': 22.6.1
       safe-buffer: 5.1.2
 
   '@typescript-eslint/eslint-plugin@8.7.0(@typescript-eslint/parser@8.7.0(eslint@8.57.1)(typescript@5.6.2))(eslint@8.57.1)(typescript@5.6.2)':
@@ -5865,7 +5865,7 @@ snapshots:
       '@azure/identity': 4.3.0
       '@azure/keyvault-keys': 4.8.0
       '@js-joda/core': 5.6.2
-      '@types/node': 22.6.0
+      '@types/node': 22.6.1
       bl: 6.0.12
       iconv-lite: 0.6.3
       js-md4: 0.3.2
@@ -5909,14 +5909,14 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-node@10.9.2(@types/node@22.6.0)(typescript@5.6.2):
+  ts-node@10.9.2(@types/node@22.6.1)(typescript@5.6.2):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.6.0
+      '@types/node': 22.6.1
       acorn: 8.11.3
       acorn-walk: 8.3.2
       arg: 4.1.3
