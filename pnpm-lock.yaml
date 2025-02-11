@@ -75,8 +75,8 @@ importers:
         specifier: ^8.13.1
         version: 8.13.1
       pg-query-stream:
-        specifier: ^4.7.1
-        version: 4.7.1(pg@8.13.1)
+        specifier: ^4.7.2
+        version: 4.7.2(pg@8.13.1)
       prettier:
         specifier: ^3.5.0
         version: 3.5.0
@@ -2299,8 +2299,8 @@ packages:
   pg-connection-string@2.7.0:
     resolution: {integrity: sha512-PI2W9mv53rXJQEOb8xNR8lH7Hr+EKa6oJa38zsK0S/ky2er16ios1wLKhZyxzD7jUReiWokc9WK5nxSnC7W1TA==}
 
-  pg-cursor@2.12.1:
-    resolution: {integrity: sha512-V13tEaA9Oq1w+V6Q3UBIB/blxJrwbbr35/dY54r/86soBJ7xkP236bXaORUTVXUPt9B6Ql2BQu+uwQiuMfRVgg==}
+  pg-cursor@2.12.2:
+    resolution: {integrity: sha512-bkmzezXnpBM1sBO5ka/yJ31xbqNXM0uG9D/m995CI/9K8ftJR/B4FpRtPEusO4vMqlYG0RFbbBr/pl+xseL1cw==}
     peerDependencies:
       pg: ^8
 
@@ -2316,8 +2316,8 @@ packages:
   pg-protocol@1.7.0:
     resolution: {integrity: sha512-hTK/mE36i8fDDhgDFjy6xNOG+LCorxLG3WO17tku+ij6sVHXh1jQUJ8hYAnRhNla4QVD2H8er/FOjc/+EgC6yQ==}
 
-  pg-query-stream@4.7.1:
-    resolution: {integrity: sha512-UMgsgn/pOIYsIifRySp59vwlpTpLADMK9HWJtq5ff0Z3MxBnPMGnCQeaQl5VuL+7ov4F96mSzIRIcz+Duo6OiQ==}
+  pg-query-stream@4.7.2:
+    resolution: {integrity: sha512-O6b6YKSUKrTuG+rku9g5uu+PX8Or3mY5+AkjMbz6jIrbX9PxQzs33P21N1Gjk16t2qcopo+V0QzQ/tmZuQj9Wg==}
     peerDependencies:
       pg: ^8
 
@@ -5322,7 +5322,7 @@ snapshots:
 
   pg-connection-string@2.7.0: {}
 
-  pg-cursor@2.12.1(pg@8.13.1):
+  pg-cursor@2.12.2(pg@8.13.1):
     dependencies:
       pg: 8.13.1
 
@@ -5334,10 +5334,10 @@ snapshots:
 
   pg-protocol@1.7.0: {}
 
-  pg-query-stream@4.7.1(pg@8.13.1):
+  pg-query-stream@4.7.2(pg@8.13.1):
     dependencies:
       pg: 8.13.1
-      pg-cursor: 2.12.1(pg@8.13.1)
+      pg-cursor: 2.12.2(pg@8.13.1)
 
   pg-types@2.2.0:
     dependencies:
