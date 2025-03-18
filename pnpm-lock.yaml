@@ -30,8 +30,8 @@ importers:
         specifier: ^8.26.1
         version: 8.26.1(eslint@8.57.1)(typescript@5.8.2)
       better-sqlite3:
-        specifier: ^11.9.0
-        version: 11.9.0
+        specifier: ^11.9.1
+        version: 11.9.1
       chai:
         specifier: ^4.3.10
         version: 4.4.1
@@ -55,7 +55,7 @@ importers:
         version: 5.2.3(eslint-config-prettier@10.1.1(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.3)
       knex:
         specifier: ^3.1.0
-        version: 3.1.0(better-sqlite3@11.9.0)(mysql2@3.13.0)(mysql@2.18.1)(pg@8.14.0)(sqlite3@5.1.7)(tedious@19.0.0)
+        version: 3.1.0(better-sqlite3@11.9.1)(mysql2@3.13.0)(mysql@2.18.1)(pg@8.14.0)(sqlite3@5.1.7)(tedious@19.0.0)
       kysely:
         specifier: ^0.27.6
         version: 0.27.6
@@ -797,8 +797,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  better-sqlite3@11.9.0:
-    resolution: {integrity: sha512-4b9xYnoaskj8eIkke9ZCB42p5bOPabptSku8Rl4Yww70Jf+aHeLvrIjXDJrKQxUEjdppsFb+fdJSjoH4TklROA==}
+  better-sqlite3@11.9.1:
+    resolution: {integrity: sha512-Ba0KR+Fzxh2jDRhdg6TSH0SJGzb8C0aBY4hR8w8madIdIzzC6Y1+kx5qR6eS1Z+Gy20h6ZU28aeyg0z1VIrShQ==}
 
   bignumber.js@9.0.0:
     resolution: {integrity: sha512-t/OYhhJ2SD+YGBQcjY8GzzDHEk9f3nerxjtfa6tlMXfe7frs/WozhvCNoGvpM0P3bNf3Gq5ZRMlGr5f3r4/N8A==}
@@ -3557,7 +3557,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  better-sqlite3@11.9.0:
+  better-sqlite3@11.9.1:
     dependencies:
       bindings: 1.5.0
       prebuild-install: 7.1.3
@@ -4639,7 +4639,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  knex@3.1.0(better-sqlite3@11.9.0)(mysql2@3.13.0)(mysql@2.18.1)(pg@8.14.0)(sqlite3@5.1.7)(tedious@19.0.0):
+  knex@3.1.0(better-sqlite3@11.9.1)(mysql2@3.13.0)(mysql@2.18.1)(pg@8.14.0)(sqlite3@5.1.7)(tedious@19.0.0):
     dependencies:
       colorette: 2.0.19
       commander: 10.0.1
@@ -4656,7 +4656,7 @@ snapshots:
       tarn: 3.0.2
       tildify: 2.0.0
     optionalDependencies:
-      better-sqlite3: 11.9.0
+      better-sqlite3: 11.9.1
       mysql: 2.18.1
       mysql2: 3.13.0
       pg: 8.14.0
