@@ -71,7 +71,7 @@
     "pg-query-stream": "^4.10.0",
     "prettier": "^3.5.3",
     "prettier-plugin-organize-imports": "^4.1.0",
-    "prettier-plugin-pkg": "^0.20.0",
+    "prettier-plugin-pkg": "^0.21.1",
     "sqlite3": "^5.1.7",
     "tedious": "^19.0.0",
     "ts-node": "^10.9.2",
