@@ -50,7 +50,7 @@
     "@types/chai": "^4.3.14",
     "@types/lodash": "^4.17.17",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.15.30",
+    "@types/node": "^24.0.0",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.34.0",
     "better-sqlite3": "^11.10.0",
