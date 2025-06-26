@@ -67,7 +67,7 @@
     "mocha": "^11.7.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.14.1",
-    "pg": "^8.16.0",
+    "pg": "^8.16.2",
     "pg-query-stream": "^4.10.0",
     "prettier": "^3.5.3",
     "prettier-plugin-organize-imports": "^4.1.0",
