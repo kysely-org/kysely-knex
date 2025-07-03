@@ -30,8 +30,8 @@ importers:
         specifier: ^8.35.1
         version: 8.35.1(eslint@8.57.1)(typescript@5.8.3)
       better-sqlite3:
-        specifier: ^12.1.1
-        version: 12.1.1
+        specifier: ^12.2.0
+        version: 12.2.0
       chai:
         specifier: ^4.3.10
         version: 4.5.0
@@ -55,7 +55,7 @@ importers:
         version: 5.5.1(eslint-config-prettier@10.1.5(eslint@8.57.1))(eslint@8.57.1)(prettier@3.6.2)
       knex:
         specifier: ^3.1.0
-        version: 3.1.0(better-sqlite3@12.1.1)(mysql2@3.14.1)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.0.0)
+        version: 3.1.0(better-sqlite3@12.2.0)(mysql2@3.14.1)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.0.0)
       kysely:
         specifier: ^0.27.6
         version: 0.27.6
@@ -807,8 +807,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  better-sqlite3@12.1.1:
-    resolution: {integrity: sha512-xjl/TjWLy/6yLa5wkbQSjTgIgSiaEJy3XzjF5TAdiWaAsu/v0OCkYOc6tos+PkM/k4qURN2pFKTsbcG3gk29Uw==}
+  better-sqlite3@12.2.0:
+    resolution: {integrity: sha512-eGbYq2CT+tos1fBwLQ/tkBt9J5M3JEHjku4hbvQUePCckkvVf14xWj+1m7dGoK81M/fOjFT7yM9UMeKT/+vFLQ==}
     engines: {node: 20.x || 22.x || 23.x || 24.x}
 
   bignumber.js@9.0.0:
@@ -3661,7 +3661,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  better-sqlite3@12.1.1:
+  better-sqlite3@12.2.0:
     dependencies:
       bindings: 1.5.0
       prebuild-install: 7.1.3
@@ -4792,7 +4792,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  knex@3.1.0(better-sqlite3@12.1.1)(mysql2@3.14.1)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.0.0):
+  knex@3.1.0(better-sqlite3@12.2.0)(mysql2@3.14.1)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.0.0):
     dependencies:
       colorette: 2.0.19
       commander: 10.0.1
@@ -4809,7 +4809,7 @@ snapshots:
       tarn: 3.0.2
       tildify: 2.0.0
     optionalDependencies:
-      better-sqlite3: 12.1.1
+      better-sqlite3: 12.2.0
       mysql: 2.18.1
       mysql2: 3.14.1
       pg: 8.16.3
