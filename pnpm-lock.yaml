@@ -57,8 +57,8 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(better-sqlite3@12.2.0)(mysql2@3.14.2)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.0.0)
       kysely:
-        specifier: ^0.27.6
-        version: 0.27.6
+        specifier: ^0.28.3
+        version: 0.28.3
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -1834,9 +1834,9 @@ packages:
       tedious:
         optional: true
 
-  kysely@0.27.6:
-    resolution: {integrity: sha512-FIyV/64EkKhJmjgC0g2hygpBv5RNWVPyNCqSAD7eTCv6eFWNIi4PN1UvdSJGicN/o35bnevgis4Y0UDC0qi8jQ==}
-    engines: {node: '>=14.0.0'}
+  kysely@0.28.3:
+    resolution: {integrity: sha512-svKnkSH72APRdjfVCCOknxaC9Eb3nA2StHG9d5/sKOqRvHRp2Dtf1XwDvc92b4B5v6LV+EAGWXQbZ5jMOvHaDw==}
+    engines: {node: '>=20.0.0'}
 
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
@@ -4829,7 +4829,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  kysely@0.27.6: {}
+  kysely@0.28.3: {}
 
   levn@0.4.1:
     dependencies:
