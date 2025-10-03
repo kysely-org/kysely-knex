@@ -53,7 +53,7 @@
     "@types/node": "^24.6.0",
     "@typescript-eslint/eslint-plugin": "^8.45.0",
     "@typescript-eslint/parser": "^8.45.0",
-    "better-sqlite3": "^12.2.0",
+    "better-sqlite3": "^12.4.1",
     "chai": "^4.3.10",
     "esbuild": "^0.25.10",
     "esbuild-runner": "^2.2.2",
