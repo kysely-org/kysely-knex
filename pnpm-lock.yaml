@@ -55,7 +55,7 @@ importers:
         version: 5.5.4(eslint-config-prettier@10.1.8(eslint@8.57.1))(eslint@8.57.1)(prettier@3.6.2)
       knex:
         specifier: ^3.1.0
-        version: 3.1.0(better-sqlite3@12.4.1)(mysql2@3.15.3)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.1.0)
+        version: 3.1.0(better-sqlite3@12.4.1)(mysql2@3.15.3)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.1.2)
       kysely:
         specifier: ^0.27.6
         version: 0.27.6
@@ -90,8 +90,8 @@ importers:
         specifier: ^5.1.7
         version: 5.1.7
       tedious:
-        specifier: ^19.1.0
-        version: 19.1.0
+        specifier: ^19.1.2
+        version: 19.1.2
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@24.10.0)(typescript@5.9.3)
@@ -2774,8 +2774,8 @@ packages:
     resolution: {integrity: sha512-51LAVKUSZSVfI05vjPESNc5vwqqZpbXCsU+/+wxlOrUjk2SnFTt97v9ZgQrD4YmxYW1Px6w2KjaDitCfkvgxMQ==}
     engines: {node: '>=8.0.0'}
 
-  tedious@19.1.0:
-    resolution: {integrity: sha512-SQAtv2ij8+ABT6Un4crXNPYcngRKz+ociUPvSbBN1yOtsGEB9wEFN2B7CyE5/khJX7t47N/lFEKy2ghXr+R6lg==}
+  tedious@19.1.2:
+    resolution: {integrity: sha512-QD+53avGmR0t0wjiS1rux800fF/jnu5vq9/gZ9cPgIyxLCL4PqEUt1Kmn7AfwUnwRYv8jEOuWknLvUJdBqrV7A==}
     engines: {node: '>=18.17'}
 
   text-table@0.2.0:
@@ -4631,6 +4631,7 @@ snapshots:
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
+    optional: true
 
   iconv-lite@0.7.0:
     dependencies:
@@ -4889,7 +4890,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  knex@3.1.0(better-sqlite3@12.4.1)(mysql2@3.15.3)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.1.0):
+  knex@3.1.0(better-sqlite3@12.4.1)(mysql2@3.15.3)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.1.2):
     dependencies:
       colorette: 2.0.19
       commander: 10.0.1
@@ -4911,7 +4912,7 @@ snapshots:
       mysql2: 3.15.3
       pg: 8.16.3
       sqlite3: 5.1.7
-      tedious: 19.1.0
+      tedious: 19.1.2
     transitivePeerDependencies:
       - supports-color
 
@@ -5956,7 +5957,7 @@ snapshots:
 
   tarn@3.0.2: {}
 
-  tedious@19.1.0:
+  tedious@19.1.2:
     dependencies:
       '@azure/core-auth': 1.10.1
       '@azure/identity': 4.13.0
@@ -5964,7 +5965,7 @@ snapshots:
       '@js-joda/core': 5.6.5
       '@types/node': 24.10.0
       bl: 6.1.4
-      iconv-lite: 0.6.3
+      iconv-lite: 0.7.0
       js-md4: 0.3.2
       native-duplexpair: 1.0.0
       sprintf-js: 1.1.3
