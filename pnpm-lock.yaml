@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@tsconfig/node20':
-        specifier: ^20.1.6
-        version: 20.1.6
+        specifier: ^20.1.7
+        version: 20.1.7
       '@types/chai':
         specifier: ^4.3.14
         version: 4.3.20
@@ -581,8 +581,8 @@ packages:
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
 
-  '@tsconfig/node20@20.1.6':
-    resolution: {integrity: sha512-sz+Hqx9zwZDpZIV871WSbUzSqNIsXzghZydypnfgzPKLltVJfkINfUeTct31n/tTSa9ZE1ZOfKdRre1uHHquYQ==}
+  '@tsconfig/node20@20.1.7':
+    resolution: {integrity: sha512-Lt137u6AoCCJNNklpNtfGIYFEywma7Hd3B083jqMga37opSEVw7beWsD4OTXyzKS0I3G2kbQJVoZpOxy9GnxBQ==}
 
   '@tsd/typescript@5.9.2':
     resolution: {integrity: sha512-mSMM0QtEPdMd+rdMDd17yCUYD4yI3pKHap89+jEZrZ3KIO5PhDofBjER0OtgHdvOXF74KMLO3fyD6k3Hz0v03A==}
@@ -3448,7 +3448,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@tsconfig/node20@20.1.6': {}
+  '@tsconfig/node20@20.1.7': {}
 
   '@tsd/typescript@5.9.2': {}
 
