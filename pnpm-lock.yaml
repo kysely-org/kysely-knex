@@ -55,7 +55,7 @@ importers:
         version: 5.5.4(eslint-config-prettier@10.1.8(eslint@8.57.1))(eslint@8.57.1)(prettier@3.6.2)
       knex:
         specifier: ^3.1.0
-        version: 3.1.0(better-sqlite3@12.4.1)(mysql2@3.15.3)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.1.2)
+        version: 3.1.0(better-sqlite3@12.4.1)(mysql2@3.15.3)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.1.3)
       kysely:
         specifier: ^0.27.6
         version: 0.27.6
@@ -90,8 +90,8 @@ importers:
         specifier: ^5.1.7
         version: 5.1.7
       tedious:
-        specifier: ^19.1.2
-        version: 19.1.2
+        specifier: ^19.1.3
+        version: 19.1.3
       ts-node:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@24.10.1)(typescript@5.9.3)
@@ -175,8 +175,8 @@ packages:
     resolution: {integrity: sha512-vQYQcG4J43UWgo1lj7LcmdsGUKWYo28RfEvDQAEMmQIMjSFufvb+pS0FJ3KXmrPmnWlt1vHDl3oip6mIDUQ4uA==}
     engines: {node: '>=0.8.0'}
 
-  '@azure/msal-node@3.8.1':
-    resolution: {integrity: sha512-HszfqoC+i2C9+BRDQfuNUGp15Re7menIhCEbFCQ49D3KaqEDrgZIgQ8zSct4T59jWeUIL9N/Dwiv4o2VueTdqQ==}
+  '@azure/msal-node@3.8.2':
+    resolution: {integrity: sha512-dQrex2LiXwlCe9WuBHnCsY+xxLyuMXSd2SDEYJuhqB7cE8u6QafiC1xy8j8eBjGO30AsRi2M6amH0ZKk7vJpjA==}
     engines: {node: '>=16'}
 
   '@babel/code-frame@7.27.1':
@@ -1066,12 +1066,12 @@ packages:
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
 
-  default-browser-id@5.0.0:
-    resolution: {integrity: sha512-A6p/pu/6fyBcA1TRz/GqWYPViplrftcW2gZC9q79ngNCKAeR/X3gcEdXQHl4KNXV+3wgIJ1CPkJQ3IHM6lcsyA==}
+  default-browser-id@5.0.1:
+    resolution: {integrity: sha512-x1VCxdX4t+8wVfd1so/9w+vQ4vx7lKd2Qp5tDRutErwmR85OgmfX7RlLRMWafRMY7hbEiXIbudNrjOAPa/hL8Q==}
     engines: {node: '>=18'}
 
-  default-browser@5.2.1:
-    resolution: {integrity: sha512-WY/3TUME0x3KPYdRRxEJJvXRHV4PyPoUsxtZa78lwItwRQRHhd2U9xOscaT/YTf8uCXIAjeJOFBVEh/7FtD8Xg==}
+  default-browser@5.4.0:
+    resolution: {integrity: sha512-XDuvSq38Hr1MdN47EDvYtx3U0MTqpCEn+F6ft8z2vYDzMrvQhVp0ui9oQdqW3MvK3vqUETglt1tVGgjLuJ5izg==}
     engines: {node: '>=18'}
 
   define-data-property@1.1.4:
@@ -2764,8 +2764,8 @@ packages:
     resolution: {integrity: sha512-51LAVKUSZSVfI05vjPESNc5vwqqZpbXCsU+/+wxlOrUjk2SnFTt97v9ZgQrD4YmxYW1Px6w2KjaDitCfkvgxMQ==}
     engines: {node: '>=8.0.0'}
 
-  tedious@19.1.2:
-    resolution: {integrity: sha512-QD+53avGmR0t0wjiS1rux800fF/jnu5vq9/gZ9cPgIyxLCL4PqEUt1Kmn7AfwUnwRYv8jEOuWknLvUJdBqrV7A==}
+  tedious@19.1.3:
+    resolution: {integrity: sha512-6O6efTeYtcnar3Cqf/ptqJs+U10fYYjp/SHRNm3VGuCTUDys+AUgIbxWbT2kzl4baXAzuy9byV3qCgOimrRfTA==}
     engines: {node: '>=18.17'}
 
   text-table@0.2.0:
@@ -3112,7 +3112,7 @@ snapshots:
       '@azure/core-util': 1.13.1
       '@azure/logger': 1.3.0
       '@azure/msal-browser': 4.26.1
-      '@azure/msal-node': 3.8.1
+      '@azure/msal-node': 3.8.2
       open: 10.2.0
       tslib: 2.8.1
     transitivePeerDependencies:
@@ -3161,7 +3161,7 @@ snapshots:
 
   '@azure/msal-common@15.13.1': {}
 
-  '@azure/msal-node@3.8.1':
+  '@azure/msal-node@3.8.2':
     dependencies:
       '@azure/msal-common': 15.13.1
       jsonwebtoken: 9.0.2
@@ -3977,12 +3977,12 @@ snapshots:
 
   deep-is@0.1.4: {}
 
-  default-browser-id@5.0.0: {}
+  default-browser-id@5.0.1: {}
 
-  default-browser@5.2.1:
+  default-browser@5.4.0:
     dependencies:
       bundle-name: 4.1.0
-      default-browser-id: 5.0.0
+      default-browser-id: 5.0.1
 
   define-data-property@1.1.4:
     dependencies:
@@ -4868,7 +4868,7 @@ snapshots:
 
   kind-of@6.0.3: {}
 
-  knex@3.1.0(better-sqlite3@12.4.1)(mysql2@3.15.3)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.1.2):
+  knex@3.1.0(better-sqlite3@12.4.1)(mysql2@3.15.3)(mysql@2.18.1)(pg@8.16.3)(sqlite3@5.1.7)(tedious@19.1.3):
     dependencies:
       colorette: 2.0.19
       commander: 10.0.1
@@ -4890,7 +4890,7 @@ snapshots:
       mysql2: 3.15.3
       pg: 8.16.3
       sqlite3: 5.1.7
-      tedious: 19.1.2
+      tedious: 19.1.3
     transitivePeerDependencies:
       - supports-color
 
@@ -5247,7 +5247,7 @@ snapshots:
 
   open@10.2.0:
     dependencies:
-      default-browser: 5.2.1
+      default-browser: 5.4.0
       define-lazy-prop: 3.0.0
       is-inside-container: 1.0.0
       wsl-utils: 0.1.0
@@ -5933,7 +5933,7 @@ snapshots:
 
   tarn@3.0.2: {}
 
-  tedious@19.1.2:
+  tedious@19.1.3:
     dependencies:
       '@azure/core-auth': 1.10.1
       '@azure/identity': 4.13.0
