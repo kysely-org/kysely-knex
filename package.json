@@ -46,7 +46,7 @@
     "kysely": ">= 0.24.0 < 1"
   },
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.7",
+    "@tsconfig/node20": "^20.1.8",
     "@types/chai": "^4.3.14",
     "@types/lodash": "^4.17.20",
     "@types/mocha": "^10.0.10",
