@@ -29,6 +29,7 @@ export class KyselyKnexConnection implements DatabaseConnection {
 
   async commitTransaction(): Promise<void> {
     await this.#transaction!.commit()
+    await this.#transaction!.executionPromise
     this.#transaction = undefined
   }
 
