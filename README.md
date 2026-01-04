@@ -97,8 +97,8 @@ export const makeKysely = (trx: Knex.Transaction | Knex) => new Kysely<DB>({
 
 // This allows querying using the same transaction with both libraries:
 await knex.transaction(async (trx) => {
-  console.log(await trx('users').select('id'));
-  console.log(await makeKysely(trx).selectFrom('users').select('id').execute());
+  await trx('users').select('id');
+  await makeKysely(trx).selectFrom('users').select('id').execute();
 });
 ```
 
