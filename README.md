@@ -93,13 +93,13 @@ export const makeKysely = (trx: Knex.Transaction | Knex) => new Kysely<DB>({
     knex: trx,
     kyselySubDialect: new PGColdDialect(),
   }),
-});
+})
 
 // This allows querying using the same transaction with both libraries:
 await knex.transaction(async (trx) => {
-  await trx('users').select('id');
-  await makeKysely(trx).selectFrom('users').select('id').execute();
-});
+  await trx('users').select('id')
+  await makeKysely(trx).selectFrom('users').select('id').execute()
+})
 ```
 
 ### Migrations
