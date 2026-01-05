@@ -82,6 +82,26 @@ export const kysely = new Kysely<Database>({
 
 For other dialects, simply swap `PGColdDialect` with `MySQLColdDialect`, `MySQL2ColdDialect`, `MSSQLColdDialect`, `SQLite3ColdDialect` or `BetterSQLite3ColdDialect`.
 
+### Transactions
+
+Because `Kysely` and `KyselyKnexDialect` are lightweight adapter classes that don't store much state, you can pass Knex transactions to the `KyselyKnexDialect`.
+This lets you use the same Knex transaction to make both Knex and Kysely queries, which can make it easier to introduce Kysely into the codebase, while keeping legacy code on Knex until migrated. You can create a simple function that wraps the Knex transaction in a Kysely instance, like so:
+
+```ts
+export const makeKysely = (trx: Knex.Transaction | Knex) => new Kysely<DB>({
+  dialect: new KyselyKnexDialect({
+    knex: trx,
+    kyselySubDialect: new PGColdDialect(),
+  }),
+})
+
+// This allows querying using the same transaction with both libraries:
+await knex.transaction(async (trx) => {
+  await trx('users').select('id')
+  await makeKysely(trx).selectFrom('users').select('id').execute()
+})
+```
+
 ### Migrations
 
 There are a few ways to tackle migrations given you have an existing Knex migration setup:
