@@ -84,8 +84,8 @@ importers:
         specifier: ^4.3.0
         version: 4.3.0(prettier@3.6.2)(typescript@5.9.3)
       prettier-plugin-pkg:
-        specifier: ^0.21.2
-        version: 0.21.2(prettier@3.6.2)
+        specifier: ^0.22.1
+        version: 0.22.1(prettier@3.6.2)
       sqlite3:
         specifier: ^5.1.7
         version: 5.1.7
@@ -2384,8 +2384,8 @@ packages:
       vue-tsc:
         optional: true
 
-  prettier-plugin-pkg@0.21.2:
-    resolution: {integrity: sha512-CSlM5+51B7yTKcoRWT4M3ImcdFHD5NUz0Xu2t8J03B761zu6J3BjSo/XleKp2kB0tH49K7oG5Uuqn6ldI5LRLg==}
+  prettier-plugin-pkg@0.22.1:
+    resolution: {integrity: sha512-l9qnxic48hgTXsvXi9yWWWzovpqkEYo/Ljf8Af7zSkDTNVmLwscXW63IEVMJXH94DyloO8YkogeLheJUzJh/ZQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       prettier: ^3.0.3
@@ -5487,7 +5487,7 @@ snapshots:
       prettier: 3.6.2
       typescript: 5.9.3
 
-  prettier-plugin-pkg@0.21.2(prettier@3.6.2):
+  prettier-plugin-pkg@0.22.1(prettier@3.6.2):
     dependencies:
       prettier: 3.6.2
 
