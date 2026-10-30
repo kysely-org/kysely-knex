@@ -182,7 +182,7 @@ for (const dialect of SUPPORTED_DIALECTS) {
 
     if (dialect === 'mssql' || dialect === 'pg') {
       it('should be able to execute queries with literal question marks', async () => {
-        const message = 'ARE YOU NOT ENTERTAINED?? HUH?'
+        const message = '? ARE YOU NOT ENTERTAINED?? HUH?'
 
         const result = await sql<{message: string}>`
           select ${sql.lit(message)} as message

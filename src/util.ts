@@ -11,5 +11,5 @@ export function freeze<T>(obj: T): Readonly<T> {
 }
 
 export function escapeQuestionMarks(str: string): string {
-  return str.replace(/([^\\])(?=\?)/g, '$1\\')
+  return str.replace(/(?<!\\)\?/g, '\\?')
 }
