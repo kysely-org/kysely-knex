@@ -191,5 +191,27 @@ for (const dialect of SUPPORTED_DIALECTS) {
         expect(result.rows).to.deep.equal([{message}])
       })
     }
+
+    if (dialect === 'pg') {
+      it('should be able to execute queries with question mark operators', async () => {
+        const result = await ctx.kysely
+          .selectNoFrom((eb) => {
+            const pet = sql`'{"name": "Catto", "species": "cat"}'::jsonb`
+
+            return [
+              eb(pet, '?', 'name').as('has_name'),
+              eb(pet, '?|', eb.val(['name', 'owner'])).as('has_name_or_owner'),
+              eb(pet, '?&', eb.val(['name', 'owner'])).as('has_name_and_owner'),
+            ]
+          })
+          .executeTakeFirstOrThrow()
+
+        expect(result).to.deep.equal({
+          has_name: true,
+          has_name_or_owner: true,
+          has_name_and_owner: false,
+        })
+      })
+    }
   })
 }
